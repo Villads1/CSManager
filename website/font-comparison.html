@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Comparison - Inter vs Roboto</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #f0f0f0;
+            padding: 40px;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .comparison {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            padding: 16px;
+            background: #141414;
+            color: #666;
+            font-size: 0.8rem;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .col {
+            padding: 16px 20px;
+            border-left: 1px solid #2a2a2a;
+        }
+
+        .col-header {
+            background: #141414;
+            color: #00d4ff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .body-text {
+            font-size: 1rem;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .small {
+            font-size: 0.85rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(255, 107, 0, 0.15);
+            color: #ff6b00;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .link {
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .stat {
+            font-weight: 700;
+            color: #22c55e;
+        }
+
+        .numbers {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .accents {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-weight: 600;
+        }
+
+        .orange {
+            color: #ff6b00;
+        }
+
+        .cyan {
+            color: #00d4ff;
+        }
+
+        .green {
+            color: #22c55e;
+        }
+
+        .purple {
+            color: #a855f7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔤 Inter vs Roboto</h1>
+
+    <div class="comparison">
+        <div class="row">
+            <div class="label"></div>
+            <div class="col col-header">Inter (Current)</div>
+            <div class="col col-header">Roboto</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Heading</div>
+            <div class="col inter heading">Spirit vs NAVI</div>
+            <div class="col roboto heading">Spirit vs NAVI</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Body</div>
+            <div class="col inter body-text">Team Spirit have won their third consecutive Major title.</div>
+            <div class="col roboto body-text">Team Spirit have won their third consecutive Major title.</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Small</div>
+            <div class="col inter small">December 18, 2025 • 2 hours ago</div>
+            <div class="col roboto small">December 18, 2025 • 2 hours ago</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Badge</div>
+            <div class="col inter"><span class="badge">Transfers</span></div>
+            <div class="col roboto"><span class="badge">Transfers</span></div>
+        </div>
+
+        <div class="row">
+            <div class="label">Link</div>
+            <div class="col inter link">View Rankings →</div>
+            <div class="col roboto link">View Rankings →</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Numbers</div>
+            <div class="col inter numbers">1.42 Rating • 892 pts</div>
+            <div class="col roboto numbers">1.42 Rating • 892 pts</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Accents</div>
+            <div class="col inter accents">
+                <span class="orange">Orange</span>
+                <span class="cyan">Cyan</span>
+                <span class="green">Green</span>
+                <span class="purple">Purple</span>
+            </div>
+            <div class="col roboto accents">
+                <span class="orange">Orange</span>
+                <span class="cyan">Cyan</span>
+                <span class="green">Green</span>
+                <span class="purple">Purple</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

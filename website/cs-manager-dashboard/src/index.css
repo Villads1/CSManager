@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #020617;
+  color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Custom Utility Classes */
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+  }
+  
+  .glass {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Section Headers - Uppercase, bold, tracking */
+  .section-header {
+    @apply text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-4;
+  }
+
+  /* Card Component with subtle gradient border */
+  .card {
+    @apply bg-slate-900/80 border border-slate-800 rounded-xl p-5 relative overflow-hidden;
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 100%);
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(248, 250, 252, 0.1), transparent);
+  }
+
+  /* Energy Bar */
+  .energy-bar {
+    @apply h-1.5 rounded-full bg-slate-800 overflow-hidden;
+  }
+
+  .energy-bar-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+  }
+
+  /* Role Badges */
+  .badge {
+    @apply text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md;
+  }
+
+  .badge-awp {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  .badge-igl {
+    @apply bg-blue-500/20 text-blue-400 border border-blue-500/30;
+  }
+
+  .badge-entry {
+    @apply bg-orange-500/20 text-orange-400 border border-orange-500/30;
+  }
+
+  .badge-support {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+
+  .badge-rifler {
+    @apply bg-violet-500/20 text-violet-400 border border-violet-500/30;
+  }
+
+  /* Primary Action Button */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 
+           hover:from-orange-400 hover:to-orange-500
+           text-white font-semibold rounded-lg 
+           transition-all duration-300 ease-out
+           shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* Nav Link */
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium 
+           text-slate-400 hover:text-slate-50 hover:bg-slate-800/50
+           transition-all duration-200;
+  }
+
+  .nav-link.active {
+    @apply bg-gradient-to-r from-orange-500/10 to-transparent 
+           text-orange-400 border-l-2 border-orange-500;
+  }
+
+  /* Stat Value */
+  .stat-value {
+    @apply text-2xl font-bold text-slate-50 tabular-nums tracking-tight;
+  }
+
+  /* Status dot pulse animation */
+  .status-live {
+    @apply relative;
+  }
+  
+  .status-live::before {
+    content: '';
+    @apply absolute -left-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-green-500 rounded-full;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.5; transform: translateY(-50%) scale(1.5); }
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #334155, #475569);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #475569, #64748b);
+}
+
+/* Selection */
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: #f8fafc;
+}

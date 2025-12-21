@@ -1,0 +1,95 @@
+/* ===========================================
+   PROTOTYPE A: FROST THEME
+   Theme variables override only - imports base dashboard.css
+   =========================================== */
+
+@import url('../dashboard.css');
+
+/* Override CSS Custom Properties for Frost Theme */
+:root {
+    /* Background Colors - Deep Blue */
+    --bg-base: #0a0e14;
+    --bg-surface: #121820;
+    --bg-elevated: #1a222c;
+    --bg-hover: #222c38;
+    --bg-active: #2a3644;
+
+    /* Border Colors */
+    --border-subtle: #2a3644;
+    --border-default: #3a4654;
+    --border-strong: #4a5664;
+
+    /* Text Colors */
+    --text-primary: #e8eef4;
+    --text-secondary: #8899aa;
+    --text-dim: #5a6a7a;
+    --text-muted: #3a4a5a;
+
+    /* Accent Colors - Cool Blue/Purple */
+    --accent-orange: #00b4ff;
+    --accent-orange-dim: rgba(0, 180, 255, 0.15);
+    --accent-cyan: #00b4ff;
+    --accent-cyan-dim: rgba(0, 180, 255, 0.15);
+    --accent-green: #00e5a0;
+    --accent-green-dim: rgba(0, 229, 160, 0.15);
+    --accent-purple: #a855f7;
+    --accent-purple-dim: rgba(168, 85, 247, 0.15);
+    --accent-red: #ff4466;
+    --accent-red-dim: rgba(255, 68, 102, 0.15);
+}
+
+/* Theme-specific accents */
+.logo-text .accent {
+    background: linear-gradient(135deg, #00b4ff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.my-team-btn {
+    background: linear-gradient(135deg, #00b4ff, #a855f7);
+    box-shadow: 0 2px 15px rgba(0, 180, 255, 0.3);
+}
+
+.my-team-btn:hover {
+    box-shadow: 0 4px 20px rgba(0, 180, 255, 0.4);
+}
+
+.avatar-ring {
+    background: linear-gradient(135deg, #00b4ff, #a855f7);
+}
+
+.your-events {
+    background: linear-gradient(135deg, #0f1820, #121820);
+    border-left: 3px solid #00b4ff;
+    box-shadow: inset 4px 0 15px -5px rgba(0, 180, 255, 0.3);
+}
+
+/* Frost theme: Blue/Purple hover glows */
+.your-events:hover,
+.your-events:has(.event-block:hover),
+.your-events:has(.event-match:hover) {
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 4px 0 20px -5px rgba(0, 180, 255, 0.5);
+    border-color: #00b4ff;
+}
+
+.event-block:hover {
+    background: rgba(0, 180, 255, 0.03);
+}
+
+/* Widget hover - blue glow */
+.widget:hover {
+    box-shadow: 0 8px 30px rgba(0, 180, 255, 0.15);
+}
+
+/* Player of the Week - purple/blue glow */
+.potw-card:hover .avatar-ring {
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.4),
+        0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.potw-card:hover .potw-rating {
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.6);
+}

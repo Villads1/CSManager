@@ -1,0 +1,1634 @@
+/* ===========================================
+   CS Manager Dashboard - Carbon Theme
+   HLTV-inspired Gaming Dashboard
+   =========================================== */
+
+/* CSS Custom Properties - Carbon/Charcoal Theme */
+:root {
+    /* Background Colors */
+    --bg-base: #0d0d0d;
+    --bg-surface: #1a1a1a;
+    --bg-elevated: #222222;
+    --bg-hover: #282828;
+    --bg-active: #333333;
+
+    /* Border Colors */
+    --border-subtle: #3a3a3a;
+    --border-default: #4a4a4a;
+    --border-strong: #5a5a5a;
+
+    /* Text Colors */
+    --text-primary: #f0f0f0;
+    --text-secondary: #999999;
+    --text-dim: #666666;
+    --text-muted: #4a4a4a;
+
+    /* Accent Colors - Vivid & Contrasting */
+    --accent-orange: #ff6b00;
+    --accent-orange-dim: rgba(255, 107, 0, 0.15);
+    --accent-cyan: #00d4ff;
+    --accent-cyan-dim: rgba(0, 212, 255, 0.15);
+    --accent-green: #22c55e;
+    --accent-green-dim: rgba(34, 197, 94, 0.15);
+    --accent-purple: #a855f7;
+    --accent-purple-dim: rgba(168, 85, 247, 0.15);
+    --accent-red: #ef4444;
+    --accent-red-dim: rgba(239, 68, 68, 0.15);
+
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing */
+    --sidebar-width-left: 220px;
+    --sidebar-width-right: 280px;
+    --nav-height: 56px;
+    --widget-gap: 20px;
+    --content-gap: 24px;
+
+    /* Effects */
+    --transition-fast: 0.15s ease;
+    --transition-medium: 0.25s ease;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    /* Micro-animation Properties */
+    --hover-lift: -3px;
+    --hover-scale: 1.02;
+    --glow-spread: 20px;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* Selection */
+::selection {
+    background: var(--accent-cyan);
+    color: var(--bg-base);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-orange);
+}
+
+/* ===========================================
+   NAVIGATION
+   =========================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    font-size: 1.4rem;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo-text .accent {
+    color: var(--accent-cyan);
+}
+
+/* Nav Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+    flex: 1;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.nav-item.active .nav-link {
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+}
+
+.dropdown-arrow {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    transition: var(--transition-fast);
+}
+
+.nav-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition-medium);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(4px);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.dropdown-menu li a:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+/* Nav Actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Search */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.search-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-cyan);
+}
+
+.search-icon {
+    font-size: 0.9rem;
+}
+
+.search-input {
+    position: absolute;
+    right: 100%;
+    width: 0;
+    padding: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: var(--transition-medium);
+}
+
+.search-container.expanded .search-input {
+    width: 220px;
+    padding: 8px 12px;
+    margin-right: 8px;
+    opacity: 1;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+}
+
+.search-input::placeholder {
+    color: var(--text-dim);
+}
+
+/* My Team Button */
+.my-team-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--accent-orange), #ff8c00);
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+    box-shadow: 0 2px 10px rgba(255, 107, 0, 0.3);
+}
+
+.my-team-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+}
+
+.team-icon {
+    font-size: 1rem;
+}
+
+/* ===========================================
+   DASHBOARD LAYOUT
+   =========================================== */
+
+.dashboard {
+    padding-top: calc(var(--nav-height) + 20px);
+    min-height: 100vh;
+}
+
+.dashboard-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 16px 40px;
+    display: grid;
+    grid-template-columns: var(--sidebar-width-left) 1fr var(--sidebar-width-right);
+    gap: var(--content-gap);
+}
+
+/* ===========================================
+   SIDEBARS & WIDGETS
+   =========================================== */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--widget-gap);
+}
+
+.widget {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.widget-header h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+}
+
+.widget-link {
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.widget-link:hover {
+    color: var(--text-primary);
+}
+
+.widget-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.widget-badge.purple {
+    background: var(--accent-purple-dim);
+    color: var(--accent-purple);
+}
+
+/* ===========================================
+   PLAYER OF THE WEEK
+   =========================================== */
+
+.potw-card {
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.potw-avatar {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.avatar-ring {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    overflow: hidden;
+}
+
+.avatar-ring .avatar-emoji {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-elevated);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.avatar-ring .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 10%;
+    transform: scale(3);
+    transform-origin: center 5%;
+}
+
+.potw-rating {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    width: 28px;
+    height: 28px;
+    background: var(--accent-orange);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-surface);
+}
+
+.potw-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.potw-team {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.team-logo-sm {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.team-logo-xs {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.potw-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.potw-stat {
+    text-align: center;
+}
+
+.potw-stat .stat-value {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.potw-stat .stat-value.green {
+    color: var(--accent-green);
+}
+
+.potw-stat .stat-value.cyan {
+    color: var(--accent-cyan);
+}
+
+.potw-stat .stat-value.orange {
+    color: var(--accent-orange);
+}
+
+.potw-stat .stat-value.purple {
+    color: var(--accent-purple);
+}
+
+.potw-stat .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===========================================
+   RANKINGS
+   =========================================== */
+
+.rankings-list {
+    list-style: none;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: var(--transition-fast);
+}
+
+.ranking-item:last-child {
+    border-bottom: none;
+}
+
+.ranking-item:hover {
+    background: var(--bg-hover);
+}
+
+.ranking-item .rank {
+    width: 28px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-dim);
+}
+
+.ranking-item:first-child .rank {
+    color: var(--accent-orange);
+}
+
+.ranking-item .team-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.ranking-item .points {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ===========================================
+   TODAY'S MATCHES (COMPACT)
+   =========================================== */
+
+.match-count {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.matches-list.compact {
+    list-style: none;
+}
+
+.match-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: var(--transition-fast);
+}
+
+.match-item:last-child {
+    border-bottom: none;
+}
+
+.match-item:hover {
+    background: var(--bg-hover);
+}
+
+.match-item.live {
+    background: var(--accent-red-dim);
+}
+
+.match-status {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.match-status.live-badge {
+    background: var(--accent-red);
+    color: #fff;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.match-time {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    min-width: 36px;
+}
+
+.match-teams-compact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.match-teams-compact .vs {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.match-teams-compact .score {
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+/* Team with logo display */
+.team-with-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ===========================================
+   MAIN CONTENT - NEWS
+   =========================================== */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+}
+
+/* Featured Article */
+.featured-article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition-medium);
+}
+
+.featured-article:hover {
+    border-color: var(--border-default);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.featured-image {
+    position: relative;
+    aspect-ratio: 16/10;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-elevated), var(--bg-active));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.image-placeholder.small {
+    font-size: 2rem;
+}
+
+.featured-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.featured-tag.orange {
+    background: var(--accent-orange);
+    color: #000;
+}
+
+.featured-content {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.article-date {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+}
+
+.featured-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.featured-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.read-more {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.read-more:hover {
+    color: var(--text-primary);
+}
+
+/* News Grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.news-card {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+}
+
+.news-card:hover {
+    background: var(--bg-elevated);
+    border-color: var(--border-default);
+}
+
+.news-image {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.news-category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.news-category.cyan {
+    color: var(--accent-cyan);
+}
+
+.news-category.green {
+    color: var(--accent-green);
+}
+
+.news-category.purple {
+    color: var(--accent-purple);
+}
+
+.news-category.orange {
+    color: var(--accent-orange);
+}
+
+.news-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.news-meta {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+/* Articles List */
+.articles-list {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-header h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.view-all {
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+.view-all:hover {
+    color: var(--text-primary);
+}
+
+.article-items {
+    list-style: none;
+}
+
+.article-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: var(--transition-fast);
+}
+
+.article-item:last-child {
+    border-bottom: none;
+}
+
+.article-item:hover {
+    background: var(--bg-hover);
+}
+
+.article-category {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.article-category.cyan {
+    background: var(--accent-cyan-dim);
+    color: var(--accent-cyan);
+}
+
+.article-category.green {
+    background: var(--accent-green-dim);
+    color: var(--accent-green);
+}
+
+.article-category.purple {
+    background: var(--accent-purple-dim);
+    color: var(--accent-purple);
+}
+
+.article-category.orange {
+    background: var(--accent-orange-dim);
+    color: var(--accent-orange);
+}
+
+.article-link {
+    flex: 1;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.article-link:hover {
+    color: var(--accent-cyan);
+}
+
+.article-time {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    flex-shrink: 0;
+}
+
+/* ===========================================
+   RIGHT SIDEBAR - USER'S EVENTS
+   =========================================== */
+
+/* Your Schedule - highlighted personal area */
+.your-events {
+    background: linear-gradient(135deg, #1f1a18, #1a1a1a);
+    border-left: 3px solid var(--accent-orange);
+    box-shadow: inset 4px 0 15px -5px rgba(255, 107, 0, 0.4);
+}
+
+/* Custom hover for Your Schedule - preserve orange glow while adding lift */
+.your-events:hover,
+.your-events:has(.widget-header:hover),
+.your-events:has(.event-block:hover),
+.your-events:has(.event-match:hover) {
+    transform: translateY(var(--hover-lift));
+    /* Combine: external shadow + preserved inset orange glow */
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 4px 0 20px -5px rgba(255, 107, 0, 0.5);
+    border-color: var(--accent-orange);
+}
+
+.your-events .widget-header {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.team-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    background: var(--accent-orange-dim);
+    color: var(--accent-orange);
+    border-radius: 4px;
+}
+
+.event-block {
+    padding: 16px;
+}
+
+.event-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.event-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.event-info {
+    flex: 1;
+}
+
+.event-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.event-date {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.event-status {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.event-status.ongoing {
+    background: var(--accent-green-dim);
+    color: var(--accent-green);
+}
+
+.event-status.upcoming {
+    background: var(--accent-cyan-dim);
+    color: var(--accent-cyan);
+}
+
+.event-matches {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.event-match {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--accent-cyan);
+}
+
+.event-match.potential {
+    border-left-color: var(--text-dim);
+    opacity: 0.7;
+}
+
+.match-round {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    min-width: 70px;
+}
+
+.match-details {
+    flex: 1;
+}
+
+.match-details .opponent {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Opponent team logo in schedule */
+.match-details .opponent .team-logo-xs,
+.opponent-logo {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.match-details .match-datetime {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.event-separator {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 0 16px;
+}
+
+/* ===========================================
+   RECENT TRANSFERS
+   =========================================== */
+
+.transfers-list {
+    list-style: none;
+}
+
+.transfer-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: var(--transition-fast);
+}
+
+.transfer-item:last-child {
+    border-bottom: none;
+}
+
+.transfer-item:hover {
+    background: var(--bg-hover);
+}
+
+.player-mini {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.player-avatar-sm {
+    width: 28px;
+    height: 28px;
+    background: var(--bg-elevated);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.player-mini .player-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.transfer-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+}
+
+.transfer-flow .from-team {
+    color: var(--text-dim);
+}
+
+.transfer-flow .arrow {
+    color: var(--text-muted);
+}
+
+.transfer-flow .to-team {
+    color: var(--text-secondary);
+}
+
+.transfer-flow .to-team.highlight {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+/* ===========================================
+   MICRO-ANIMATIONS
+   Premium hover effects and transitions
+   =========================================== */
+
+/* Widget Hover Effects */
+.widget {
+    transition:
+        transform var(--transition-smooth),
+        box-shadow var(--transition-smooth),
+        border-color var(--transition-smooth);
+}
+
+.widget:hover {
+    transform: translateY(var(--hover-lift));
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--border-default);
+}
+
+/* Override: Your Schedule keeps its orange glow on hover (cascade order fix) */
+.your-events:hover,
+.your-events:has(:hover) {
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 4px 0 20px -5px rgba(255, 107, 0, 0.5);
+    border-color: var(--accent-orange);
+}
+
+/* Player of the Week Card - Enhanced Avatar Animation */
+.potw-card {
+    transition: transform var(--transition-smooth);
+}
+
+.avatar-ring {
+    transition:
+        transform var(--transition-bounce),
+        box-shadow var(--transition-smooth);
+}
+
+.potw-card:hover .avatar-ring {
+    transform: scale(1.08);
+    box-shadow: 0 0 var(--glow-spread) rgba(168, 85, 247, 0.4),
+        0 0 calc(var(--glow-spread) * 2) rgba(0, 212, 255, 0.2);
+}
+
+.potw-rating {
+    transition:
+        transform var(--transition-bounce),
+        box-shadow var(--transition-smooth);
+}
+
+.potw-card:hover .potw-rating {
+    transform: scale(1.15);
+    box-shadow: 0 0 12px rgba(255, 107, 0, 0.6);
+}
+
+/* Stats Value Pop Effect */
+.potw-stat .stat-value {
+    transition: transform var(--transition-bounce);
+}
+
+.potw-stat:hover .stat-value {
+    transform: scale(1.1);
+}
+
+/* Ranking Items - Staggered Slide Effect */
+.ranking-item {
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-smooth),
+        padding-left var(--transition-smooth);
+}
+
+.ranking-item:hover {
+    background: var(--bg-hover);
+    transform: translateX(4px);
+    padding-left: 20px;
+}
+
+.ranking-item:hover .rank {
+    transition: color var(--transition-fast);
+}
+
+.ranking-item:hover .rank {
+    color: var(--accent-cyan);
+}
+
+/* Team Logo Subtle Bounce */
+.ranking-item .team-logo-sm {
+    transition: transform var(--transition-bounce);
+}
+
+.ranking-item:hover .team-logo-sm {
+    transform: scale(1.15);
+}
+
+/* Match Items - Glow Border Effect */
+.match-item {
+    transition:
+        background var(--transition-fast),
+        border-left var(--transition-smooth),
+        box-shadow var(--transition-smooth);
+    border-left: 3px solid transparent;
+}
+
+.match-item:hover {
+    background: var(--bg-hover);
+    border-left-color: var(--accent-cyan);
+    box-shadow: inset 4px 0 12px -4px rgba(0, 212, 255, 0.3);
+}
+
+.match-item.live {
+    animation: liveGlow 2s ease-in-out infinite;
+}
+
+@keyframes liveGlow {
+
+    0%,
+    100% {
+        box-shadow: inset 0 0 0 rgba(239, 68, 68, 0);
+    }
+
+    50% {
+        box-shadow: inset 0 0 20px rgba(239, 68, 68, 0.15);
+    }
+}
+
+/* Enhanced Live Badge Pulse with Glow */
+.match-status.live-badge {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 0 rgba(239, 68, 68, 0);
+    }
+
+    50% {
+        opacity: 0.85;
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+    }
+}
+
+/* News Card Lift and Glow */
+.news-card {
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-smooth),
+        box-shadow var(--transition-smooth),
+        border-color var(--transition-smooth);
+}
+
+.news-card:hover {
+    background: var(--bg-elevated);
+    border-color: var(--border-default);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* News Image Zoom Effect */
+.news-image .image-placeholder {
+    transition: transform var(--transition-smooth);
+    overflow: hidden;
+}
+
+.news-card:hover .image-placeholder {
+    transform: scale(1.05);
+}
+
+.news-card:hover .image-placeholder span {
+    transition: transform var(--transition-bounce);
+    transform: scale(1.2);
+}
+
+/* Featured Article Shimmer Effect */
+.featured-article {
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.03),
+            transparent);
+    transition: left 0.8s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.featured-article:hover::before {
+    left: 100%;
+}
+
+.featured-article:hover {
+    transform: scale(var(--hover-scale));
+}
+
+/* Featured Image Parallax Zoom */
+.featured-image .image-placeholder span {
+    transition: transform var(--transition-smooth);
+}
+
+.featured-article:hover .featured-image .image-placeholder span {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Article Item Slide Effect */
+.article-item {
+    transition:
+        background var(--transition-fast),
+        padding-left var(--transition-smooth),
+        border-left var(--transition-smooth);
+    border-left: 3px solid transparent;
+}
+
+.article-item:hover {
+    background: var(--bg-hover);
+    padding-left: 20px;
+    border-left-color: var(--accent-orange);
+}
+
+/* Category Badge Pop */
+.article-category,
+.news-category {
+    transition: transform var(--transition-bounce);
+}
+
+.article-item:hover .article-category {
+    transform: scale(1.05);
+}
+
+/* Event Block Hover Enhancement */
+.event-block {
+    transition:
+        background var(--transition-smooth),
+        transform var(--transition-smooth);
+}
+
+.event-block:hover {
+    background: rgba(255, 107, 0, 0.03);
+    transform: scale(1.02);
+}
+
+/* Event Match Cards */
+.event-match {
+    transition:
+        transform var(--transition-smooth),
+        box-shadow var(--transition-smooth),
+        border-left-width var(--transition-fast);
+}
+
+.event-match:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-left-width: 5px;
+}
+
+/* Transfer Item Animation */
+.transfer-item {
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-smooth);
+}
+
+.transfer-item:hover {
+    background: var(--bg-hover);
+    transform: translateX(4px);
+}
+
+.transfer-flow .arrow {
+    transition: transform var(--transition-bounce);
+    display: inline-block;
+}
+
+.transfer-item:hover .transfer-flow .arrow {
+    transform: translateX(4px) scale(1.2);
+    color: var(--accent-cyan);
+}
+
+/* Player Avatar Hover */
+.player-avatar-sm {
+    transition:
+        transform var(--transition-bounce),
+        background var(--transition-fast);
+}
+
+.transfer-item:hover .player-avatar-sm {
+    transform: scale(1.1);
+    background: var(--bg-active);
+}
+
+/* Navigation Button Ripple Effect */
+.my-team-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.my-team-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.my-team-btn:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+/* Logo Hover Effect */
+.nav-logo:hover .logo-icon {
+    transition: transform var(--transition-bounce);
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.nav-logo .logo-text .accent {
+    transition: text-shadow var(--transition-smooth);
+}
+
+.nav-logo:hover .logo-text .accent {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Search Button Pulse on Focus */
+.search-input:focus~.search-btn,
+.search-container.expanded .search-btn {
+    animation: searchPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes searchPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(0, 212, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+    }
+}
+
+/* Scrollbar Animation */
+::-webkit-scrollbar-thumb {
+    transition: background var(--transition-fast);
+}
+
+/* Widget Link Hover Effect - Arrow Swoosh */
+.widget-link,
+.view-all,
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    transition: color var(--transition-fast);
+}
+
+.widget-link:hover,
+.view-all:hover,
+.read-more:hover {
+    color: var(--text-primary);
+}
+
+/* Arrow icon styling */
+.arrow-icon {
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+/* Swoosh animation keyframes - arrow flies right, comes back from left */
+@keyframes arrowSwoosh {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translateX(16px);
+        opacity: 0;
+    }
+
+    41% {
+        transform: translateX(-16px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply swoosh only to the arrow icon on hover */
+.widget-link:hover .arrow-icon,
+.view-all:hover .arrow-icon,
+.read-more:hover .arrow-icon {
+    animation: arrowSwoosh 0.4s ease-out;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 1400px) {
+    .dashboard-container {
+        grid-template-columns: var(--sidebar-width-left) 1fr 280px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .dashboard-container {
+        grid-template-columns: 1fr 280px;
+    }
+
+    .sidebar-left {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-right {
+        display: none;
+    }
+
+    .featured-article {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}

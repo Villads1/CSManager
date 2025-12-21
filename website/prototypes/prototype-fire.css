@@ -1,0 +1,111 @@
+/* ===========================================
+   PROTOTYPE B: FIRE THEME
+   Theme variables override only - imports base dashboard.css
+   =========================================== */
+
+@import url('../dashboard.css');
+
+/* Override CSS Custom Properties for Fire Theme */
+:root {
+    /* Background Colors - Warm Dark */
+    --bg-base: #0f0a08;
+    --bg-surface: #1a1210;
+    --bg-elevated: #241c18;
+    --bg-hover: #2e241e;
+    --bg-active: #382c24;
+
+    /* Border Colors */
+    --border-subtle: #3a2e26;
+    --border-default: #4a3e34;
+    --border-strong: #5a4e44;
+
+    /* Text Colors */
+    --text-primary: #f4ece8;
+    --text-secondary: #aa9988;
+    --text-dim: #7a6a5a;
+    --text-muted: #5a4a3a;
+
+    /* Accent Colors - Warm Amber/Gold */
+    --accent-orange: #ff8c00;
+    --accent-orange-dim: rgba(255, 140, 0, 0.15);
+    --accent-cyan: #ffd700;
+    --accent-cyan-dim: rgba(255, 215, 0, 0.15);
+    --accent-green: #88cc44;
+    --accent-green-dim: rgba(136, 204, 68, 0.15);
+    --accent-purple: #ff4444;
+    --accent-purple-dim: rgba(255, 68, 68, 0.15);
+    --accent-red: #ff4444;
+    --accent-red-dim: rgba(255, 68, 68, 0.15);
+}
+
+/* Theme-specific warm gradient background */
+body {
+    background-image: radial-gradient(ellipse at top right, rgba(255, 140, 0, 0.03) 0%, transparent 50%);
+}
+
+/* Warm accent styling */
+.logo-text .accent {
+    color: #ff8c00;
+}
+
+.my-team-btn {
+    background: linear-gradient(135deg, #ff8c00, #ff4444);
+    box-shadow: 0 2px 15px rgba(255, 140, 0, 0.4);
+}
+
+.my-team-btn:hover {
+    box-shadow: 0 4px 20px rgba(255, 140, 0, 0.5);
+}
+
+.avatar-ring {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.potw-rating {
+    background: #ffd700;
+}
+
+.widget-header {
+    background: linear-gradient(90deg, rgba(255, 140, 0, 0.05), transparent);
+}
+
+.your-events {
+    background: linear-gradient(135deg, #1f1810, #1a1210);
+    border-left: 3px solid #ff8c00;
+    box-shadow: inset 4px 0 15px -5px rgba(255, 140, 0, 0.4);
+}
+
+/* Gold ranking highlight */
+.ranking-item:first-child .rank {
+    color: #ffd700;
+}
+
+/* Fire theme: Amber/Gold hover glows */
+.your-events:hover,
+.your-events:has(.event-block:hover),
+.your-events:has(.event-match:hover) {
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 4px 0 20px -5px rgba(255, 140, 0, 0.5);
+    border-color: #ff8c00;
+}
+
+.event-block:hover {
+    background: rgba(255, 140, 0, 0.05);
+}
+
+/* Widget hover - warm amber glow */
+.widget:hover {
+    box-shadow: 0 8px 30px rgba(255, 140, 0, 0.15);
+}
+
+/* Player of the Week - gold glow */
+.potw-card:hover .avatar-ring {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+        0 0 40px rgba(255, 140, 0, 0.3);
+}
+
+.potw-card:hover .potw-rating {
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}

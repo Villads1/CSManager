@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Animation & Style Comparison</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d0d0d;
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 12px;
+            color: #00d4ff;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #ff6b00;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        /* ============================================
+           ARROW STYLES SECTION
+           ============================================ */
+        .arrow-styles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .arrow-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .arrow-chip:hover {
+            background: #222;
+            border-color: #00d4ff;
+        }
+
+        .arrow-chip.selected {
+            background: #1a2a2a;
+            border-color: #00d4ff;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+        }
+
+        .arrow-chip .symbol {
+            font-size: 1.4rem;
+            color: #00d4ff;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .arrow-chip .name {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* ============================================
+           ANIMATION GRID
+           ============================================ */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: #444;
+        }
+
+        .card h3 {
+            color: #ff6b00;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 24px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .demo-link:hover {
+            background: #2a2a2a;
+            border-color: #00d4ff;
+        }
+
+        .arrow {
+            display: inline-block;
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes swoosh {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            40% {
+                transform: translateX(16px);
+                opacity: 0;
+            }
+
+            41% {
+                transform: translateX(-16px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .swoosh:hover .arrow {
+            animation: swoosh 0.4s ease-out;
+        }
+
+        @keyframes bounceRight {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(8px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .bounce-right:hover .arrow {
+            animation: bounceRight 0.3s ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-3px);
+            }
+
+            40% {
+                transform: translateX(3px);
+            }
+
+            60% {
+                transform: translateX(-3px);
+            }
+
+            80% {
+                transform: translateX(3px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .wiggle:hover .arrow {
+            animation: wiggle 0.4s ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                transform: scale(1);
+                text-shadow: none;
+            }
+
+            50% {
+                transform: scale(1.3);
+                text-shadow: 0 0 10px #00d4ff;
+            }
+
+            100% {
+                transform: scale(1);
+                text-shadow: none;
+            }
+        }
+
+        .pulse-glow:hover .arrow {
+            animation: pulseGlow 0.4s ease-out;
+        }
+
+        .slide-hold .arrow {
+            transition: transform 0.25s ease-out;
+        }
+
+        .slide-hold:hover .arrow {
+            transform: translateX(6px);
+        }
+
+        @keyframes typewriterBounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-4px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            70% {
+                transform: translateY(-2px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .typewriter:hover .arrow {
+            animation: typewriterBounce 0.35s ease-out;
+        }
+
+        @keyframes fadeSlide {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(12px);
+                opacity: 0.3;
+            }
+        }
+
+        .fade-slide:hover .arrow {
+            animation: fadeSlide 0.3s ease-out forwards;
+        }
+
+        @keyframes doubleBounce {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(6px);
+            }
+
+            50% {
+                transform: translateX(2px);
+            }
+
+            75% {
+                transform: translateX(8px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .double-bounce:hover .arrow {
+            animation: doubleBounce 0.5s ease-out;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin:hover .arrow {
+            animation: spin 0.4s ease-out;
+        }
+
+        @keyframes elastic {
+            0% {
+                transform: translateX(0);
+            }
+
+            30% {
+                transform: translateX(12px);
+            }
+
+            50% {
+                transform: translateX(-4px);
+            }
+
+            70% {
+                transform: translateX(6px);
+            }
+
+            85% {
+                transform: translateX(-2px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .elastic:hover .arrow {
+            animation: elastic 0.6s ease-out;
+        }
+
+        .note {
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+            font-size: 0.85rem;
+        }
+
+        .current-badge {
+            background: #22c55e;
+            color: #000;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🏹 Arrow Comparison Tool</h1>
+    <p class="subtitle">Click an arrow style to change all demos, then hover to see animations</p>
+
+    <h2>Arrow Styles</h2>
+    <div class="arrow-styles" id="arrowStyles">
+        <div class="arrow-chip selected" data-arrow="→">
+            <span class="symbol">→</span>
+            <span class="name">Standard<span class="current-badge">CURRENT</span></span>
+        </div>
+        <div class="arrow-chip" data-arrow="➔">
+            <span class="symbol">➔</span>
+            <span class="name">Heavy Wide</span>
+        </div>
+        <div class="arrow-chip" data-arrow="➜">
+            <span class="symbol">➜</span>
+            <span class="name">Round-Tipped</span>
+        </div>
+        <div class="arrow-chip" data-arrow="➝">
+            <span class="symbol">➝</span>
+            <span class="name">Drafting Point</span>
+        </div>
+        <div class="arrow-chip" data-arrow="➞">
+            <span class="symbol">➞</span>
+            <span class="name">Triangle Head</span>
+        </div>
+        <div class="arrow-chip" data-arrow="⟶">
+            <span class="symbol">⟶</span>
+            <span class="name">Long Arrow</span>
+        </div>
+        <div class="arrow-chip" data-arrow="►">
+            <span class="symbol">►</span>
+            <span class="name">Pointer</span>
+        </div>
+        <div class="arrow-chip" data-arrow="▶">
+            <span class="symbol">▶</span>
+            <span class="name">Triangle</span>
+        </div>
+        <div class="arrow-chip" data-arrow="❯">
+            <span class="symbol">❯</span>
+            <span class="name">Angle Bracket</span>
+        </div>
+        <div class="arrow-chip" data-arrow="›">
+            <span class="symbol">›</span>
+            <span class="name">Single Quote</span>
+        </div>
+        <div class="arrow-chip" data-arrow="»">
+            <span class="symbol">»</span>
+            <span class="name">Double Quote</span>
+        </div>
+        <div class="arrow-chip" data-arrow="⇒">
+            <span class="symbol">⇒</span>
+            <span class="name">Double Arrow</span>
+        </div>
+        <div class="arrow-chip" data-arrow="⇨">
+            <span class="symbol">⇨</span>
+            <span class="name">White Arrow</span>
+        </div>
+        <div class="arrow-chip" data-arrow="➤">
+            <span class="symbol">➤</span>
+            <span class="name">Arrowhead</span>
+        </div>
+        <div class="arrow-chip" data-arrow="☞">
+            <span class="symbol">☞</span>
+            <span class="name">Pointing Hand</span>
+        </div>
+    </div>
+
+    <h2>Animations</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>1. Swoosh <span class="current-badge">CURRENT</span></h3>
+            <p>Arrow flies right, reappears from left, settles back.</p>
+            <a class="demo-link swoosh">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>2. Bounce Right</h3>
+            <p>Arrow hops to the right and springs back.</p>
+            <a class="demo-link bounce-right">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>3. Wiggle/Shake</h3>
+            <p>Arrow quickly shakes left-right as if excited.</p>
+            <a class="demo-link wiggle">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>4. Pulse/Glow</h3>
+            <p>Arrow scales up and glows, no movement.</p>
+            <a class="demo-link pulse-glow">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>5. Slide Out & Hold</h3>
+            <p>Arrow slides right and stays there while hovering.</p>
+            <a class="demo-link slide-hold">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>6. Typewriter Bounce</h3>
+            <p>Arrow bounces vertically like freshly typed.</p>
+            <a class="demo-link typewriter">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>7. Fade Slide</h3>
+            <p>Arrow fades while sliding right.</p>
+            <a class="demo-link fade-slide">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>8. Double Bounce</h3>
+            <p>Arrow bounces twice with decreasing intensity.</p>
+            <a class="demo-link double-bounce">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>9. Spin</h3>
+            <p>Arrow does a full 360° rotation.</p>
+            <a class="demo-link spin">View all <span class="arrow">→</span></a>
+        </div>
+
+        <div class="card">
+            <h3>10. Elastic</h3>
+            <p>Arrow bounces with elastic overshoot effect.</p>
+            <a class="demo-link elastic">View all <span class="arrow">→</span></a>
+        </div>
+    </div>
+
+    <p class="note">Click arrow styles above to preview them with all animations.</p>
+
+    <script>
+        // Arrow style switching
+        const arrowChips = document.querySelectorAll('.arrow-chip');
+        const allArrows = document.querySelectorAll('.arrow');
+
+        arrowChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                // Update selected state
+                arrowChips.forEach(c => c.classList.remove('selected'));
+                chip.classList.add('selected');
+
+                // Update all arrow symbols
+                const newArrow = chip.dataset.arrow;
+                allArrows.forEach(arrow => {
+                    arrow.textContent = newArrow;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

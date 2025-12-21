@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Manager | Counter-Strike Esports Manager Simulator</title>
+    <meta name="description"
+        content="Build your esports empire in CS Manager - the ultimate Counter-Strike management simulator. Sign players, manage rosters, win tournaments, and become the greatest esports organization in history.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">🎮</span>
+                <span class="logo-text">CS<span class="accent">Manager</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gameplay">Gameplay</a></li>
+                <li><a href="#teams">Teams</a></li>
+                <li><a href="#tournaments">Tournaments</a></li>
+            </ul>
+            <a href="#" class="nav-cta">
+                <span class="cta-icon">▶</span>
+                Play Now
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">🏆</span>
+                <span>Counter-Strike Esports Manager Simulator</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Build Your</span>
+                <span class="title-line gradient-text">Esports Dynasty</span>
+            </h1>
+            <p class="hero-subtitle">
+                Take control of a professional CS2 team. Sign legendary players,
+                outsmart rivals in the transfer market, dominate tournaments, and
+                lead your organization to become the greatest in esports history.
+            </p>
+            <div class="hero-ctas">
+                <a href="#" class="btn btn-primary">
+                    <span class="btn-glow"></span>
+                    <span class="btn-content">
+                        <span class="btn-icon">▶</span>
+                        Start Playing Free
+                    </span>
+                </a>
+                <a href="#gameplay" class="btn btn-secondary">
+                    <span class="btn-content">
+                        <span class="btn-icon">📖</span>
+                        How It Works
+                    </span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-value">40+</span>
+                    <span class="stat-label">Real Teams</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-value">200+</span>
+                    <span class="stat-label">Pro Players</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-value">∞</span>
+                    <span class="stat-label">Possibilities</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card-stack">
+                <div class="floating-card card-1">
+                    <div class="card-header">
+                        <span class="team-logo"><img src="images/Team Logos/Spirit.png"
+                                alt="Spirit" class="team-logo-img"></span>
+                        <div class="team-info">
+                            <h4>Your Team</h4>
+                            <span class="rank">#1 World</span>
+                        </div>
+                    </div>
+                    <div class="card-players">
+                        <div class="player-row">
+                            <span class="rating">94</span>
+                            <span class="name">chopper</span>
+                            <span class="role">Entry</span>
+                        </div>
+                        <div class="player-row">
+                            <span class="rating">92</span>
+                            <span class="name">magixx</span>
+                            <span class="role">Rifler</span>
+                        </div>
+                        <div class="player-row">
+                            <span class="rating">96</span>
+                            <span class="name">donk</span>
+                            <span class="role">AWP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="match-live">
+                        <span class="live-badge">● LIVE MATCH</span>
+                        <span class="tournament">Major Finals</span>
+                    </div>
+                    <div class="match-teams">
+                        <div class="match-team">
+                            <span class="team-icon"><img src="images/Team Logos/Spirit.png"
+                                    alt="Spirit" class="team-logo-img-sm"></span>
+                            <span>Your Team</span>
+                            <span class="score winning">13</span>
+                        </div>
+                        <div class="match-vs">vs</div>
+                        <div class="match-team">
+                            <span class="score">10</span>
+                            <span>G2</span>
+                            <span class="team-icon"><img src="images/Team Logos/G2.png"
+                                    alt="G2" class="team-logo-img-sm"></span>
+                        </div>
+                    </div>
+                    <div class="match-map">
+                        <span class="map-name">Mirage</span>
+                        <span class="round">Round 23</span>
+                    </div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="transfer-header">
+                        <span class="transfer-icon">💰</span>
+                        <span>Incoming Offer</span>
+                    </div>
+                    <div class="transfer-details">
+                        <div class="player-avatar">⭐</div>
+                        <div class="player-info">
+                            <span class="player-name">s1mple</span>
+                            <span class="player-team">Wants to join you!</span>
+                        </div>
+                    </div>
+                    <div class="transfer-offer">
+                        <span class="offer-label">Buyout</span>
+                        <span class="offer-amount">$2,500,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- Gameplay Overview Section -->
+    <section class="gameplay" id="gameplay">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2 class="section-title">Your Journey to<br><span class="gradient-text">Esports Glory</span></h2>
+                <p class="section-subtitle">From underdog startup to world-conquering dynasty. Every decision shapes
+                    your legacy.</p>
+            </div>
+            <div class="gameplay-steps">
+                <div class="gameplay-step reveal-up" data-delay="0">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <div class="step-icon">🏢</div>
+                        <h3>Choose Your Organization</h3>
+                        <p>Select from 40+ real esports organizations including Spirit, G2, NAVI, FaZe, and more. Each
+                            with unique history, budgets, and expectations.</p>
+                    </div>
+                </div>
+                <div class="gameplay-step reveal-up" data-delay="150">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-icon">👥</div>
+                        <h3>Build Your Roster</h3>
+                        <p>Scout talent, negotiate contracts, and assemble the perfect 5-man squad. Balance skill
+                            ratings, roles, nationalities, and chemistry.</p>
+                    </div>
+                </div>
+                <div class="gameplay-step reveal-up" data-delay="300">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-icon">⚔️</div>
+                        <h3>Compete & Win</h3>
+                        <p>Enter tournaments, face off against rivals, and watch realistic match simulations. Every
+                            round matters on your path to the Major.</p>
+                    </div>
+                </div>
+                <div class="gameplay-step reveal-up" data-delay="450">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <div class="step-icon">🏆</div>
+                        <h3>Become Legendary</h3>
+                        <p>Win Majors, climb the world rankings, and cement your legacy as the greatest manager in
+                            Counter-Strike history.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Game Features</span>
+                <h2 class="section-title">Everything You Need to<br><span class="gradient-text">Dominate the
+                        Scene</span></h2>
+                <p class="section-subtitle">Deep management systems that put you in complete control of your
+                    organization's destiny.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal-up" data-delay="0">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">📋</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3>Roster Management</h3>
+                    <p>Build your dream team from 200+ players with detailed stats, skill ratings, and unique roles like
+                        AWPer, Entry, and IGL.</p>
+                    <div class="feature-tags">
+                        <span class="tag">5 Roles</span>
+                        <span class="tag">Skill Ratings</span>
+                    </div>
+                </div>
+                <div class="feature-card reveal-up" data-delay="100">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">💼</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3>Transfer Market</h3>
+                    <p>Scout free agents, negotiate buyouts, send offers, and manage contracts. Outsmart rival
+                        organizations to land top talent.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Negotiations</span>
+                        <span class="tag">Contracts</span>
+                    </div>
+                </div>
+                <div class="feature-card reveal-up" data-delay="200">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">🏆</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3>Tournament System</h3>
+                    <p>Compete in Swiss stages, playoffs, and Majors. Realistic bracket systems with group stages and
+                        elimination rounds.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Multiple Formats</span>
+                        <span class="tag">Prize Pools</span>
+                    </div>
+                </div>
+                <div class="feature-card reveal-up" data-delay="300">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">⚔️</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3>Match Simulation</h3>
+                    <p>Watch your team compete with round-by-round simulations. Eco rounds, clutches, and overtime -
+                        every match tells a story.</p>
+                    <div class="feature-tags">
+                        <span class="tag">7 Maps</span>
+                        <span class="tag">Live Updates</span>
+                    </div>
+                </div>
+                <div class="feature-card reveal-up" data-delay="400">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3>World Rankings</h3>
+                    <p>Climb from obscurity to #1 in the world. Your match results dynamically affect your position in
+                        global rankings.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Dynamic</span>
+                        <span class="tag">40+ Teams</span>
+                    </div>
+                </div>
+                <div class="feature-card reveal-up" data-delay="500">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">📈</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3>History & Stats</h3>
+                    <p>Track your journey with detailed match history, player performance stats, and trophy cabinet
+                        showing your achievements.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Match History</span>
+                        <span class="tag">Achievements</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Showcase Section -->
+    <section class="teams" id="teams">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Choose Your Path</span>
+                <h2 class="section-title">Lead Legendary<br><span class="gradient-text">Organizations</span></h2>
+                <p class="section-subtitle">Take the helm of world-renowned esports organizations. Each with unique
+                    challenges, budgets, and legacy.</p>
+            </div>
+            <div class="teams-carousel">
+                <div class="teams-track">
+                    <!-- Team cards - duplicated for infinite scroll effect -->
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #ff6b00;"></div>
+                        <div class="team-rank">#1</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/Spirit.png"
+                                alt="Spirit" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">Spirit</h4>
+                        <span class="team-country">🇷🇺 Russia</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-easy">Easy</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #00d4ff;"></div>
+                        <div class="team-rank">#2</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/G2.png"
+                                alt="G2" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">G2</h4>
+                        <span class="team-country">🇪🇺 Europe</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-easy">Easy</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #ffd700;"></div>
+                        <div class="team-rank">#3</div>
+                        <div class="team-logo-large"><img
+                                src="images/Team Logos/Natus Vincere.png" alt="NAVI"
+                                class="team-logo-img-lg"></div>
+                        <h4 class="team-name">NAVI</h4>
+                        <span class="team-country">🇺🇦 Ukraine</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-easy">Easy</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #ff3366;"></div>
+                        <div class="team-rank">#4</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/FaZe.png"
+                                alt="FaZe" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">FaZe</h4>
+                        <span class="team-country">🇪🇺 Europe</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-medium">Medium</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #ffcc00;"></div>
+                        <div class="team-rank">#5</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/Vitality.png"
+                                alt="Vitality" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">Vitality</h4>
+                        <span class="team-country">🇫🇷 France</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-medium">Medium</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #e63946;"></div>
+                        <div class="team-rank">#15</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/HEROIC.png"
+                                alt="HEROIC" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">HEROIC</h4>
+                        <span class="team-country">🇩🇰 Denmark</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-hard">Hard</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #2196f3;"></div>
+                        <div class="team-rank">#20</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/Liquid.png"
+                                alt="Liquid" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">Liquid</h4>
+                        <span class="team-country">🇺🇸 USA</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-hard">Hard</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #9c27b0;"></div>
+                        <div class="team-rank">#30</div>
+                        <div class="team-logo-large"><img
+                                src="images/Team Logos/Complexity.png" alt="Complexity"
+                                class="team-logo-img-lg"></div>
+                        <h4 class="team-name">Complexity</h4>
+                        <span class="team-country">🇺🇸 USA</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-extreme">Extreme</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #ff6b00;"></div>
+                        <div class="team-rank">#1</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/Spirit.png"
+                                alt="Spirit" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">Spirit</h4>
+                        <span class="team-country">🇷🇺 Russia</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-easy">Easy</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #00d4ff;"></div>
+                        <div class="team-rank">#2</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/G2.png"
+                                alt="G2" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">G2</h4>
+                        <span class="team-country">🇪🇺 Europe</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-easy">Easy</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #ffd700;"></div>
+                        <div class="team-rank">#3</div>
+                        <div class="team-logo-large"><img
+                                src="images/Team Logos/Natus Vincere.png" alt="NAVI"
+                                class="team-logo-img-lg"></div>
+                        <h4 class="team-name">NAVI</h4>
+                        <span class="team-country">🇺🇦 Ukraine</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-easy">Easy</span>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-glow" style="--glow-color: #ff3366;"></div>
+                        <div class="team-rank">#4</div>
+                        <div class="team-logo-large"><img src="images/Team Logos/FaZe.png"
+                                alt="FaZe" class="team-logo-img-lg"></div>
+                        <h4 class="team-name">FaZe</h4>
+                        <span class="team-country">🇪🇺 Europe</span>
+                        <div class="team-rating">
+                            <span class="rating-label">Challenge</span>
+                            <span class="rating-value challenge-medium">Medium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Section -->
+    <section class="tournaments" id="tournaments">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Competitive Season</span>
+                <h2 class="section-title">Chase the<br><span class="gradient-text">Major Dream</span></h2>
+                <p class="section-subtitle">Navigate through group stages, playoffs, and championship finals. Every
+                    match matters on the road to glory.</p>
+            </div>
+            <div class="tournament-showcase">
+                <div class="tournament-bracket reveal-up">
+                    <div class="bracket-header">
+                        <h3>🏆 CS2 Major Championship</h3>
+                        <span class="bracket-format">Playoffs • Best of 3</span>
+                    </div>
+                    <div class="bracket-stage">
+                        <div class="bracket-round">
+                            <span class="round-title">Quarterfinals</span>
+                            <div class="bracket-match">
+                                <div class="match-slot winner you">
+                                    <span class="seed">1</span>
+                                    <span class="team">Your Team</span>
+                                    <span class="score">2</span>
+                                </div>
+                                <div class="match-slot">
+                                    <span class="seed">8</span>
+                                    <span class="team">Astralis</span>
+                                    <span class="score">0</span>
+                                </div>
+                            </div>
+                            <div class="bracket-match">
+                                <div class="match-slot winner">
+                                    <span class="seed">4</span>
+                                    <span class="team">G2</span>
+                                    <span class="score">2</span>
+                                </div>
+                                <div class="match-slot">
+                                    <span class="seed">5</span>
+                                    <span class="team">Vitality</span>
+                                    <span class="score">1</span>
+                                </div>
+                            </div>
+                            <div class="bracket-match">
+                                <div class="match-slot winner">
+                                    <span class="seed">2</span>
+                                    <span class="team">NAVI</span>
+                                    <span class="score">2</span>
+                                </div>
+                                <div class="match-slot">
+                                    <span class="seed">7</span>
+                                    <span class="team">MOUZ</span>
+                                    <span class="score">1</span>
+                                </div>
+                            </div>
+                            <div class="bracket-match">
+                                <div class="match-slot winner">
+                                    <span class="seed">3</span>
+                                    <span class="team">FaZe</span>
+                                    <span class="score">2</span>
+                                </div>
+                                <div class="match-slot">
+                                    <span class="seed">6</span>
+                                    <span class="team">Liquid</span>
+                                    <span class="score">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bracket-round">
+                            <span class="round-title">Semifinals</span>
+                            <div class="bracket-match">
+                                <div class="match-slot winner you">
+                                    <span class="team">Your Team</span>
+                                    <span class="score">2</span>
+                                </div>
+                                <div class="match-slot">
+                                    <span class="team">G2</span>
+                                    <span class="score">1</span>
+                                </div>
+                            </div>
+                            <div class="bracket-match">
+                                <div class="match-slot">
+                                    <span class="team">NAVI</span>
+                                    <span class="score">1</span>
+                                </div>
+                                <div class="match-slot winner">
+                                    <span class="team">FaZe</span>
+                                    <span class="score">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bracket-round bracket-final">
+                            <span class="round-title">🏆 Grand Final</span>
+                            <div class="bracket-match final-match">
+                                <div class="match-slot winner champion you">
+                                    <span class="trophy">🏆</span>
+                                    <span class="team">Your Team</span>
+                                    <span class="score">3</span>
+                                </div>
+                                <div class="match-slot">
+                                    <span class="team">FaZe</span>
+                                    <span class="score">2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tournament-features">
+                    <div class="tournament-feature reveal-up" data-delay="100">
+                        <div class="feature-number">01</div>
+                        <div class="feature-text">
+                            <h4>Swiss Format</h4>
+                            <p>Battle through group stages where every win moves you closer and every loss brings
+                                elimination.</p>
+                        </div>
+                    </div>
+                    <div class="tournament-feature reveal-up" data-delay="200">
+                        <div class="feature-number">02</div>
+                        <div class="feature-text">
+                            <h4>Bracket Playoffs</h4>
+                            <p>Single and double elimination brackets where one bad series can end your championship
+                                run.</p>
+                        </div>
+                    </div>
+                    <div class="tournament-feature reveal-up" data-delay="300">
+                        <div class="feature-number">03</div>
+                        <div class="feature-text">
+                            <h4>Prize Money</h4>
+                            <p>Win tournaments to earn prize pools. Build your budget and attract bigger talent.</p>
+                        </div>
+                    </div>
+                    <div class="tournament-feature reveal-up" data-delay="400">
+                        <div class="feature-number">04</div>
+                        <div class="feature-text">
+                            <h4>Ranking Points</h4>
+                            <p>Every match affects your world ranking. Climb to #1 and prove you're the best.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="stats-bg"></div>
+        <div class="section-container">
+            <div class="stats-grid">
+                <div class="stat-card reveal-up" data-delay="0">
+                    <div class="stat-icon">🎮</div>
+                    <div class="stat-number" data-target="40">0</div>
+                    <div class="stat-label">Teams</div>
+                    <div class="stat-sublabel">To manage</div>
+                </div>
+                <div class="stat-card reveal-up" data-delay="100">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label">Players</div>
+                    <div class="stat-sublabel">To sign</div>
+                </div>
+                <div class="stat-card reveal-up" data-delay="200">
+                    <div class="stat-icon">🗺️</div>
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-label">Maps</div>
+                    <div class="stat-sublabel">Active pool</div>
+                </div>
+                <div class="stat-card reveal-up" data-delay="300">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number" data-target="1">0</div>
+                    <div class="stat-label">Goal</div>
+                    <div class="stat-sublabel">Win the Major</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content reveal-up">
+                <div class="cta-icon">🚀</div>
+                <h2>Ready to Lead Your Dynasty?</h2>
+                <p>The esports world is waiting for its next legendary manager. Will it be you?</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">
+                        <span class="btn-glow"></span>
+                        <span class="btn-content">
+                            <span class="btn-icon">▶</span>
+                            Start Playing Free
+                        </span>
+                    </a>
+                    <a href="#" class="btn btn-ghost">
+                        <span class="btn-content">
+                            <span class="btn-icon">📧</span>
+                            Get Updates
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-icon">🎮</span>
+                        <span class="logo-text">CS<span class="accent">Manager</span></span>
+                    </a>
+                    <p class="footer-tagline">The ultimate Counter-Strike esports management simulator. Build your
+                        dynasty.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h5>Game</h5>
+                        <a href="#features">Features</a>
+                        <a href="#gameplay">How to Play</a>
+                        <a href="#teams">Teams</a>
+                    </div>
+                    <div class="footer-column">
+                        <h5>Resources</h5>
+                        <a href="#">Game Guide</a>
+                        <a href="#">Strategy Tips</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <div class="footer-column">
+                        <h5>Community</h5>
+                        <a href="#">Discord</a>
+                        <a href="#">Reddit</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="copyright">© 2025 CS Manager. Made with ❤️ for esports fans.</span>
+                <div class="footer-social">
+                    <a href="#" aria-label="Discord" class="social-link">💬</a>
+                    <a href="#" aria-label="Reddit" class="social-link">📱</a>
+                    <a href="#" aria-label="Twitter" class="social-link">🐦</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+/* ===========================================
+   PROTOTYPE: SOLID COLORS THEME
+   More solid/filled colors instead of accent text
+   =========================================== */
+
+@import url('../dashboard.css');
+
+/* Override with more solid color approach */
+:root {
+    /* Keep the base dark theme but use more solid fills */
+    --bg-base: #0a0a0a;
+    --bg-surface: #141414;
+    --bg-elevated: #1c1c1c;
+    --bg-hover: #242424;
+    --bg-active: #2c2c2c;
+
+    /* Stronger borders */
+    --border-subtle: #2a2a2a;
+    --border-default: #3a3a3a;
+    --border-strong: #4a4a4a;
+}
+
+/* Solid colored nav button */
+.my-team-btn {
+    background: #ff6b00;
+    box-shadow: none;
+}
+
+.my-team-btn:hover {
+    background: #ff8533;
+    box-shadow: none;
+}
+
+/* Solid widget headers with color backgrounds */
+.widget-header {
+    background: #1a1a1a;
+    border-bottom: none;
+}
+
+/* Solid badges instead of transparent with colored text */
+.widget-badge {
+    background: #a855f7;
+    color: #fff;
+}
+
+.widget-badge.purple {
+    background: #a855f7;
+    color: #fff;
+}
+
+.widget-badge.green {
+    background: #22c55e;
+    color: #fff;
+}
+
+.widget-badge.cyan {
+    background: #00d4ff;
+    color: #000;
+}
+
+.widget-badge.orange {
+    background: #ff6b00;
+    color: #fff;
+}
+
+/* Solid player rating badge */
+.potw-rating {
+    background: #ff6b00;
+    color: #fff;
+    box-shadow: none;
+}
+
+/* Solid avatar ring */
+.avatar-ring {
+    background: #ff6b00;
+    box-shadow: none;
+}
+
+/* Solid stat values with backgrounds */
+.potw-stat .stat-value {
+    background: #1a1a1a;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.potw-stat .stat-value.green {
+    background: #22c55e;
+    color: #fff;
+}
+
+.potw-stat .stat-value.cyan {
+    background: #00d4ff;
+    color: #000;
+}
+
+.potw-stat .stat-value.orange {
+    background: #ff6b00;
+    color: #fff;
+}
+
+.potw-stat .stat-value.purple {
+    background: #a855f7;
+    color: #fff;
+}
+
+/* Solid ranking highlight */
+.ranking-item:first-child {
+    background: linear-gradient(90deg, rgba(255, 107, 0, 0.2), transparent);
+}
+
+.ranking-item:first-child .rank {
+    background: #ff6b00;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Solid news category badges */
+.news-category {
+    background: #333;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.news-category.cyan {
+    background: #00d4ff;
+    color: #000;
+}
+
+.news-category.green {
+    background: #22c55e;
+    color: #fff;
+}
+
+.news-category.purple {
+    background: #a855f7;
+    color: #fff;
+}
+
+.news-category.orange {
+    background: #ff6b00;
+    color: #fff;
+}
+
+/* Solid featured tag */
+.featured-tag {
+    background: #ff6b00;
+    color: #fff;
+    box-shadow: none;
+}
+
+/* Solid article categories */
+.article-category {
+    background: #333 !important;
+    color: #fff !important;
+}
+
+.article-category.cyan {
+    background: #00d4ff !important;
+    color: #000 !important;
+}
+
+.article-category.green {
+    background: #22c55e !important;
+    color: #fff !important;
+}
+
+.article-category.purple {
+    background: #a855f7 !important;
+    color: #fff !important;
+}
+
+.article-category.orange {
+    background: #ff6b00 !important;
+    color: #fff !important;
+}
+
+/* Solid Your Schedule styling */
+.your-events {
+    border-left: 4px solid #ff6b00;
+    background: #141414;
+    box-shadow: none;
+}
+
+.your-events .widget-header {
+    background: #ff6b00;
+}
+
+.your-events .widget-header h3 {
+    color: #fff;
+}
+
+.team-badge {
+    background: #ff6b00;
+    color: #fff;
+}
+
+/* Solid event status badges */
+.event-status.ongoing {
+    background: #22c55e;
+    color: #fff;
+}
+
+.event-status.upcoming {
+    background: #00d4ff;
+    color: #000;
+}
+
+/* Solid match live badge */
+.match-badge.live {
+    background: #ef4444;
+    color: #fff;
+}
+
+/* Solid transfer direction */
+.transfer-direction {
+    background: #ff6b00;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Read more as solid button */
+.read-more {
+    background: #ff6b00;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    background: #ff8533;
+}
+
+/* Solid nav active state */
+.nav-item.active .nav-link {
+    background: #ff6b00;
+    color: #fff;
+}
+
+/* Solid theme: Strong orange hover effects */
+.your-events:hover,
+.your-events:has(.event-block:hover),
+.your-events:has(.event-match:hover) {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border-color: #ff6b00;
+}
+
+.event-block:hover {
+    background: rgba(255, 107, 0, 0.08);
+}
+
+/* Widget hover - solid shadow */
+.widget:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Player of the Week - orange glow */
+.potw-card:hover .avatar-ring {
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+}
+
+.potw-card:hover .potw-rating {
+    box-shadow: 0 0 12px rgba(255, 107, 0, 0.6);
+}

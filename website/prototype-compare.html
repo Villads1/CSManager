@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Prototypes - Theme Comparison</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .theme-selector {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            border-bottom: 1px solid #333;
+            z-index: 9999;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-selector.collapsed {
+            transform: translateY(-100%);
+        }
+
+        .category-tabs {
+            display: flex;
+            border-bottom: 1px solid #222;
+        }
+
+        .category-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: #666;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-tab:hover {
+            color: #aaa;
+            background: #1a1a1a;
+        }
+
+        .category-tab.active {
+            color: #fff;
+            border-bottom-color: #ff6b00;
+        }
+
+        .category-tab .emoji {
+            margin-right: 6px;
+        }
+
+        .theme-options {
+            display: none;
+        }
+
+        .theme-options.active {
+            display: flex;
+        }
+
+        .theme-btn {
+            flex: 1;
+            padding: 14px 20px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .theme-btn:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .theme-btn.active {
+            color: #fff;
+            background: #1a1a1a;
+        }
+
+        .theme-btn.frost.active {
+            border-bottom-color: #00b4ff;
+        }
+
+        .theme-btn.fire.active {
+            border-bottom-color: #ff8c00;
+        }
+
+        .theme-btn.minimal.active {
+            border-bottom-color: #00ff88;
+        }
+
+        .theme-btn.current.active {
+            border-bottom-color: #ff6b00;
+        }
+
+        .theme-btn.solid.active {
+            border-bottom-color: #ff6b00;
+        }
+
+        /* FM Theme colors */
+        .theme-btn.fm-classic.active {
+            border-bottom-color: #2d5a27;
+        }
+
+        .theme-btn.fm-dark.active {
+            border-bottom-color: #1a1a2e;
+        }
+
+        .theme-btn.fm-modern.active {
+            border-bottom-color: #0066cc;
+        }
+
+        /* Misc Theme colors */
+        .theme-btn.user-home.active {
+            border-bottom-color: #6366f1;
+        }
+
+        .theme-btn span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .coming-soon {
+            flex: 1;
+            padding: 24px;
+            text-align: center;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        .coming-soon em {
+            color: #666;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 24px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: #888;
+            font-size: 0.8rem;
+            cursor: pointer;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .toggle-btn.collapsed {
+            top: 8px;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100vh - 90px);
+            margin-top: 90px;
+            border: none;
+            transition: margin-top 0.3s ease, height 0.3s ease;
+        }
+
+        iframe.expanded {
+            margin-top: 0;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="theme-selector" id="themeSelector">
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <button class="category-tab active" onclick="switchCategory('hltv')">
+                <span class="emoji">📊</span> HLTV Inspired
+            </button>
+            <button class="category-tab" onclick="switchCategory('fm')">
+                <span class="emoji">⚽</span> Football Manager Inspired
+            </button>
+            <button class="category-tab" onclick="switchCategory('misc')">
+                <span class="emoji">🎨</span> Misc
+            </button>
+        </div>
+
+        <!-- HLTV Themes -->
+        <div class="theme-options active" id="hltv-themes">
+            <button class="theme-btn current active" onclick="switchTheme('current', 'hltv')">
+                🔶 Current
+                <span>Orange/Cyan Carbon</span>
+            </button>
+            <button class="theme-btn frost" onclick="switchTheme('frost', 'hltv')">
+                ❄️ Frost
+                <span>Blue/Purple Cool</span>
+            </button>
+            <button class="theme-btn fire" onclick="switchTheme('fire', 'hltv')">
+                🔥 Fire
+                <span>Amber/Gold Warm</span>
+            </button>
+            <button class="theme-btn minimal" onclick="switchTheme('minimal', 'hltv')">
+                ⚡ Minimal
+                <span>Single Green Accent</span>
+            </button>
+            <button class="theme-btn solid" onclick="switchTheme('solid', 'hltv')">
+                🎨 Solid
+                <span>Filled Color Badges</span>
+            </button>
+        </div>
+
+        <!-- FM Themes (Coming Soon) -->
+        <div class="theme-options" id="fm-themes">
+            <div class="coming-soon">
+                <em>Football Manager inspired prototypes coming soon...</em>
+            </div>
+        </div>
+
+        <!-- Misc Themes -->
+        <div class="theme-options" id="misc-themes">
+            <button class="theme-btn user-home active" onclick="switchTheme('user-home', 'misc')">
+                🌌 User Homepage
+                <span>Deep Space / Glassmorphism</span>
+            </button>
+        </div>
+    </div>
+
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleSelector()">▲</button>
+
+    <iframe id="preview" src="home.html"></iframe>
+
+    <script>
+        const themes = {
+            hltv: {
+                current: 'home.html',
+                frost: 'prototypes/home-frost.html',
+                fire: 'prototypes/home-fire.html',
+                minimal: 'prototypes/home-minimal.html',
+                solid: 'prototypes/home-solid.html'
+            },
+            fm: {
+                // Coming soon
+            },
+            misc: {
+                'user-home': 'user-home/index.html'
+            }
+        };
+
+        let isCollapsed = false;
+        let currentCategory = 'hltv';
+
+        function switchCategory(category) {
+            currentCategory = category;
+
+            // Update tab active state
+            document.querySelectorAll('.category-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.closest('.category-tab').classList.add('active');
+
+            // Show/hide theme options
+            document.querySelectorAll('.theme-options').forEach(opt => opt.classList.remove('active'));
+            document.getElementById(category + '-themes').classList.add('active');
+        }
+
+        function switchTheme(theme, category) {
+            // Update button active state within category
+            const container = document.getElementById(category + '-themes');
+            container.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.theme-btn').classList.add('active');
+
+            // Load the theme
+            if (themes[category] && themes[category][theme]) {
+                document.getElementById('preview').src = themes[category][theme];
+            }
+        }
+
+        function toggleSelector() {
+            isCollapsed = !isCollapsed;
+            const selector = document.getElementById('themeSelector');
+            const toggle = document.getElementById('toggleBtn');
+            const iframe = document.getElementById('preview');
+
+            if (isCollapsed) {
+                selector.classList.add('collapsed');
+                toggle.classList.add('collapsed');
+                toggle.textContent = '▼';
+                iframe.classList.add('expanded');
+            } else {
+                selector.classList.remove('collapsed');
+                toggle.classList.remove('collapsed');
+                toggle.textContent = '▲';
+                iframe.classList.remove('expanded');
+            }
+        }
+    </script>
+</body>
+
+</html>

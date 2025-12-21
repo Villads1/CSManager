@@ -1,0 +1,135 @@
+/* ===========================================
+   PROTOTYPE C: MINIMAL THEME
+   Theme variables override only - imports base dashboard.css
+   =========================================== */
+
+@import url('../dashboard.css');
+
+/* Override CSS Custom Properties for Minimal Theme */
+:root {
+    /* Background Colors - Pure Black */
+    --bg-base: #000000;
+    --bg-surface: #0a0a0a;
+    --bg-elevated: #141414;
+    --bg-hover: #1a1a1a;
+    --bg-active: #222222;
+
+    /* Border Colors - Subtle */
+    --border-subtle: #1a1a1a;
+    --border-default: #2a2a2a;
+    --border-strong: #3a3a3a;
+
+    /* Text Colors - High Contrast */
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --text-dim: #555555;
+    --text-muted: #333333;
+
+    /* Single Accent Color - Electric Green */
+    --accent-orange: #00ff88;
+    --accent-orange-dim: rgba(0, 255, 136, 0.1);
+    --accent-cyan: #00ff88;
+    --accent-cyan-dim: rgba(0, 255, 136, 0.1);
+    --accent-green: #00ff88;
+    --accent-green-dim: rgba(0, 255, 136, 0.1);
+    --accent-purple: #00ff88;
+    --accent-purple-dim: rgba(0, 255, 136, 0.1);
+    --accent-red: #ff4444;
+    --accent-red-dim: rgba(255, 68, 68, 0.1);
+}
+
+/* Minimal: Single accent for everything */
+.logo-text .accent {
+    color: #00ff88;
+}
+
+.my-team-btn {
+    background: transparent;
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    box-shadow: none;
+}
+
+.my-team-btn:hover {
+    background: #00ff88;
+    color: #000;
+    box-shadow: none;
+}
+
+.avatar-ring {
+    background: transparent;
+    border: 2px solid #00ff88;
+}
+
+.potw-rating {
+    background: #00ff88;
+    color: #000;
+}
+
+.your-events {
+    border-left: 2px solid #00ff88;
+    box-shadow: none;
+}
+
+/* Override all color classes to single accent */
+.news-category.cyan,
+.news-category.green,
+.news-category.purple,
+.news-category.orange,
+.article-category.cyan,
+.article-category.green,
+.article-category.purple,
+.article-category.orange,
+.potw-stat .stat-value.green,
+.potw-stat .stat-value.cyan,
+.potw-stat .stat-value.orange,
+.potw-stat .stat-value.purple {
+    color: #00ff88 !important;
+}
+
+.article-category.cyan,
+.article-category.green,
+.article-category.purple,
+.article-category.orange {
+    background: rgba(0, 255, 136, 0.1) !important;
+}
+
+.widget-badge.purple,
+.widget-badge.green,
+.widget-badge.cyan,
+.widget-badge.orange {
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+}
+
+.ranking-item:first-child .rank {
+    color: #00ff88;
+}
+
+/* Minimal theme: Electric green hover glows */
+.your-events:hover,
+.your-events:has(.event-block:hover),
+.your-events:has(.event-match:hover) {
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 4px 0 20px -5px rgba(0, 255, 136, 0.3);
+    border-color: #00ff88;
+}
+
+.event-block:hover {
+    background: rgba(0, 255, 136, 0.03);
+}
+
+/* Widget hover - subtle green glow */
+.widget:hover {
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.1);
+}
+
+/* Player of the Week - green glow */
+.potw-card:hover .avatar-ring {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.potw-card:hover .potw-rating {
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+}

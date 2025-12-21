@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Manager | Home</title>
+    <meta name="description" content="CS Manager Dashboard - Your esports management command center">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="home.html" class="nav-logo">
+                <span class="logo-icon">🎮</span>
+                <span class="logo-text">CS<span class="accent">Manager</span></span>
+            </a>
+
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="home.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">
+                        Matches
+                        <span class="dropdown-arrow">▾</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Matches</a></li>
+                        <li><a href="#">Results</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">
+                        Events
+                        <span class="dropdown-arrow">▾</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Archive</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">
+                        Players
+                        <span class="dropdown-arrow">▾</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">All Players</a></li>
+                        <li><a href="#">Transfers</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">
+                        Stats
+                        <span class="dropdown-arrow">▾</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Stats Overview</a></li>
+                        <li><a href="#">Top Players</a></li>
+                        <li><a href="#">Top Teams</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <div class="search-container" id="searchContainer">
+                    <button class="search-btn" id="searchBtn" aria-label="Search">
+                        <span class="search-icon">🔍</span>
+                    </button>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search teams, players...">
+                </div>
+                <a href="#" class="my-team-btn">
+                    <span class="team-icon">⚡</span>
+                    My Team
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard">
+        <div class="dashboard-container">
+
+            <!-- Left Sidebar -->
+            <aside class="sidebar sidebar-left">
+                <!-- Player of the Week -->
+                <section class="widget player-of-week">
+                    <div class="widget-header">
+                        <h3>Player of the Week</h3>
+                        <span class="widget-badge purple">MVP</span>
+                    </div>
+                    <div class="potw-card">
+                        <div class="potw-avatar">
+                            <div class="avatar-ring">
+                                <img src="images/Player Images/donk.png" alt="donk"
+                                    class="avatar-img">
+                            </div>
+                            <span class="potw-rating">96</span>
+                        </div>
+                        <div class="potw-info">
+                            <h4 class="potw-name">donk</h4>
+                            <span class="potw-team">
+                                <img src="images/Team Logos/Spirit.png" alt="Spirit"
+                                    class="team-logo-sm">
+                                Team Spirit
+                            </span>
+                        </div>
+                        <div class="potw-stats">
+                            <div class="potw-stat">
+                                <span class="stat-value green">1.42</span>
+                                <span class="stat-label">Rating</span>
+                            </div>
+                            <div class="potw-stat">
+                                <span class="stat-value cyan">87.3%</span>
+                                <span class="stat-label">KAST</span>
+                            </div>
+                            <div class="potw-stat">
+                                <span class="stat-value orange">28.4</span>
+                                <span class="stat-label">ADR</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- World Rankings -->
+                <section class="widget rankings">
+                    <div class="widget-header">
+                        <h3>World Rankings</h3>
+                        <a href="#" class="widget-link">View all <span class="arrow-icon">➜</span></a>
+                    </div>
+                    <ul class="rankings-list">
+                        <li class="ranking-item">
+                            <span class="rank">#1</span>
+                            <img src="images/Team Logos/Spirit.png" alt="Spirit"
+                                class="team-logo-sm">
+                            <span class="team-name">Spirit</span>
+                            <span class="points">1000</span>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">#2</span>
+                            <img src="images/Team Logos/G2.png" alt="G2" class="team-logo-sm">
+                            <span class="team-name">G2</span>
+                            <span class="points">892</span>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">#3</span>
+                            <img src="images/Team Logos/Natus Vincere.png" alt="NAVI"
+                                class="team-logo-sm">
+                            <span class="team-name">NAVI</span>
+                            <span class="points">845</span>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">#4</span>
+                            <img src="images/Team Logos/FaZe.png" alt="FaZe"
+                                class="team-logo-sm">
+                            <span class="team-name">FaZe</span>
+                            <span class="points">798</span>
+                        </li>
+                        <li class="ranking-item">
+                            <span class="rank">#5</span>
+                            <img src="images/Team Logos/Vitality.png" alt="Vitality"
+                                class="team-logo-sm">
+                            <span class="team-name">Vitality</span>
+                            <span class="points">756</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Today's Matches (Compact) -->
+                <section class="widget todays-matches">
+                    <div class="widget-header">
+                        <h3>Today's Matches</h3>
+                        <span class="match-count">6 matches</span>
+                    </div>
+                    <ul class="matches-list compact">
+                        <li class="match-item live">
+                            <span class="match-status live-badge">LIVE</span>
+                            <div class="match-teams-compact">
+                                <span class="team-with-logo"><img
+                                        src="images/Team Logos/Spirit.png" alt="Spirit"
+                                        class="team-logo-xs">Spirit</span>
+                                <span class="score">13-10</span>
+                                <span class="team-with-logo">G2 <img
+                                        src="images/Team Logos/G2.png" alt="G2"
+                                        class="team-logo-xs"></span>
+                            </div>
+                        </li>
+                        <li class="match-item">
+                            <span class="match-time">14:00</span>
+                            <div class="match-teams-compact">
+                                <span class="team-with-logo"><img
+                                        src="images/Team Logos/Natus Vincere.png" alt="NAVI"
+                                        class="team-logo-xs">NAVI</span>
+                                <span class="vs">vs</span>
+                                <span class="team-with-logo">FaZe <img
+                                        src="images/Team Logos/FaZe.png" alt="FaZe"
+                                        class="team-logo-xs"></span>
+                            </div>
+                        </li>
+                        <li class="match-item">
+                            <span class="match-time">16:30</span>
+                            <div class="match-teams-compact">
+                                <span class="team-with-logo"><img
+                                        src="images/Team Logos/Vitality.png" alt="Vitality"
+                                        class="team-logo-xs">Vitality</span>
+                                <span class="vs">vs</span>
+                                <span class="team-with-logo">MOUZ <img
+                                        src="images/Team Logos/MOUZ.png" alt="MOUZ"
+                                        class="team-logo-xs"></span>
+                            </div>
+                        </li>
+                        <li class="match-item">
+                            <span class="match-time">19:00</span>
+                            <div class="match-teams-compact">
+                                <span class="team-with-logo"><img
+                                        src="images/Team Logos/Liquid.png" alt="Liquid"
+                                        class="team-logo-xs">Liquid</span>
+                                <span class="vs">vs</span>
+                                <span class="team-with-logo">Astralis <img
+                                        src="images/Team Logos/Astralis.png" alt="Astralis"
+                                        class="team-logo-xs"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Center Column - News -->
+            <section class="main-content">
+                <!-- Featured Article -->
+                <article class="featured-article">
+                    <div class="featured-image">
+                        <div class="image-placeholder">
+                            <span>🏆</span>
+                        </div>
+                        <span class="featured-tag orange">Featured</span>
+                    </div>
+                    <div class="featured-content">
+                        <span class="article-date">December 18, 2025</span>
+                        <h2 class="featured-title">Spirit Completes Historic Major Three-Peat with Dominant Grand Final
+                            Victory</h2>
+                        <p class="featured-excerpt">Team Spirit have cemented their legacy as the greatest CS2 roster of
+                            all time with a commanding 3-1 victory over FaZe Clan in the Austin Major Grand Final...</p>
+                        <a href="#" class="read-more">Read full article <span class="arrow-icon">➜</span></a>
+                    </div>
+                </article>
+
+                <!-- News Grid -->
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-image">
+                            <div class="image-placeholder small">
+                                <span>💰</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category cyan">Transfers</span>
+                            <h3 class="news-title">G2 Complete €1.2M Signing of Rising Danish Talent</h3>
+                            <span class="news-meta">2 hours ago</span>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image">
+                            <div class="image-placeholder small">
+                                <span>📊</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category green">Rankings</span>
+                            <h3 class="news-title">NAVI Drop to #3 After Early Major Exit</h3>
+                            <span class="news-meta">5 hours ago</span>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image">
+                            <div class="image-placeholder small">
+                                <span>🎮</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category purple">Events</span>
+                            <h3 class="news-title">BLAST Premier Spring Groups Announced</h3>
+                            <span class="news-meta">8 hours ago</span>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-image">
+                            <div class="image-placeholder small">
+                                <span>⚔️</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category orange">Match</span>
+                            <h3 class="news-title">FaZe vs Vitality Preview: Battle for Top 5</h3>
+                            <span class="news-meta">12 hours ago</span>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- More Articles -->
+                <section class="articles-list">
+                    <div class="section-header">
+                        <h3>Latest News</h3>
+                        <a href="#" class="view-all">View all articles <span class="arrow-icon">➜</span></a>
+                    </div>
+                    <ul class="article-items">
+                        <li class="article-item">
+                            <span class="article-category cyan">Transfers</span>
+                            <a href="#" class="article-link">Heroic Reportedly in Talks with ENCE Star</a>
+                            <span class="article-time">14h ago</span>
+                        </li>
+                        <li class="article-item">
+                            <span class="article-category green">Interview</span>
+                            <a href="#" class="article-link">donk: "We're Not Done Winning Yet"</a>
+                            <span class="article-time">18h ago</span>
+                        </li>
+                        <li class="article-item">
+                            <span class="article-category purple">Analysis</span>
+                            <a href="#" class="article-link">Why the AWP Meta is Shifting in 2025</a>
+                            <span class="article-time">1d ago</span>
+                        </li>
+                        <li class="article-item">
+                            <span class="article-category orange">Events</span>
+                            <a href="#" class="article-link">IEM Cologne Prize Pool Revealed: $1.5M</a>
+                            <span class="article-time">1d ago</span>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Right Sidebar - User's Team Events -->
+            <aside class="sidebar sidebar-right">
+                <!-- Your Upcoming Events -->
+                <section class="widget your-events">
+                    <div class="widget-header">
+                        <h3>Your Schedule</h3>
+                        <span class="team-badge">
+                            <img src="images/Team Logos/Spirit.png" alt="Spirit"
+                                class="team-logo-xs"> Spirit
+                        </span>
+                    </div>
+
+                    <!-- Event 1 -->
+                    <div class="event-block">
+                        <div class="event-header">
+                            <span class="event-icon">🏆</span>
+                            <div class="event-info">
+                                <h4 class="event-name">IEM Cologne 2025</h4>
+                                <span class="event-date">Dec 20 - Dec 28</span>
+                            </div>
+                            <span class="event-status ongoing">Ongoing</span>
+                        </div>
+                        <ul class="event-matches">
+                            <li class="event-match">
+                                <span class="match-round">Quarterfinal</span>
+                                <div class="match-details">
+                                    <span class="opponent">vs NAVI <img
+                                            src="images/Team Logos/Natus Vincere.png"
+                                            alt="NAVI" class="team-logo-xs"></span>
+                                    <span class="match-datetime">Dec 22, 18:00</span>
+                                </div>
+                            </li>
+                            <li class="event-match potential">
+                                <span class="match-round">Semifinal</span>
+                                <div class="match-details">
+                                    <span class="opponent">vs TBD</span>
+                                    <span class="match-datetime">Dec 24</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="event-separator"></div>
+
+                    <!-- Event 2 -->
+                    <div class="event-block">
+                        <div class="event-header">
+                            <span class="event-icon">💥</span>
+                            <div class="event-info">
+                                <h4 class="event-name">BLAST Premier: Spring</h4>
+                                <span class="event-date">Jan 15 - Jan 22</span>
+                            </div>
+                            <span class="event-status upcoming">Upcoming</span>
+                        </div>
+                        <ul class="event-matches">
+                            <li class="event-match">
+                                <span class="match-round">Group A</span>
+                                <div class="match-details">
+                                    <span class="opponent">vs G2 <img
+                                            src="images/Team Logos/G2.png" alt="G2"
+                                            class="team-logo-xs"></span>
+                                    <span class="match-datetime">Jan 15, 15:00</span>
+                                </div>
+                            </li>
+                            <li class="event-match">
+                                <span class="match-round">Group A</span>
+                                <div class="match-details">
+                                    <span class="opponent">vs FaZe <img
+                                            src="images/Team Logos/FaZe.png" alt="FaZe"
+                                            class="team-logo-xs"></span>
+                                    <span class="match-datetime">Jan 16, 18:00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Recent Transfers -->
+                <section class="widget recent-transfers">
+                    <div class="widget-header">
+                        <h3>Recent Transfers</h3>
+                        <a href="#" class="widget-link">View all <span class="arrow-icon">➜</span></a>
+                    </div>
+                    <ul class="transfers-list">
+                        <li class="transfer-item">
+                            <div class="player-mini">
+                                <span class="player-avatar-sm">👤</span>
+                                <span class="player-name">cadiaN</span>
+                            </div>
+                            <div class="transfer-flow">
+                                <span class="from-team">Heroic</span>
+                                <span class="arrow">➜</span>
+                                <span class="to-team highlight">G2</span>
+                            </div>
+                        </li>
+                        <li class="transfer-item">
+                            <div class="player-mini">
+                                <span class="player-avatar-sm">👤</span>
+                                <span class="player-name">huNter</span>
+                            </div>
+                            <div class="transfer-flow">
+                                <span class="from-team">G2</span>
+                                <span class="arrow">➜</span>
+                                <span class="to-team">FaZe</span>
+                            </div>
+                        </li>
+                        <li class="transfer-item">
+                            <div class="player-mini">
+                                <span class="player-avatar-sm">👤</span>
+                                <span class="player-name">Twistzz</span>
+                            </div>
+                            <div class="transfer-flow">
+                                <span class="from-team">FaZe</span>
+                                <span class="arrow">➜</span>
+                                <span class="to-team">Liquid</span>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
