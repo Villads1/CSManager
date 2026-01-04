@@ -1865,6 +1865,7 @@ body {
     display: flex;
     flex-direction: row;
     height: 100%;
+    width: 100%;
 }
 
 /* Main content area (event header, teams, rosters) */
@@ -2035,6 +2036,13 @@ body {
 .map-status.live {
     color: var(--accent-red);
     animation: pulse 1.5s infinite;
+}
+
+/* Content area wrapping the rosters */
+.match-overview-content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
 }
 
 /* Rosters Container */
