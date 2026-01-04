@@ -21,6 +21,7 @@
             background: #0a0a0a;
             color: #fff;
             min-height: 100vh;
+            overflow: hidden;
         }
 
         .theme-selector {
@@ -137,6 +138,10 @@
             border-bottom-color: #0066cc;
         }
 
+        .theme-btn.fm26.active {
+            border-bottom-color: #8b5cf6;
+        }
+
         /* Misc Theme colors */
         .theme-btn.user-home.active {
             border-bottom-color: #6366f1;
@@ -148,6 +153,95 @@
             font-weight: 400;
             color: #666;
             margin-top: 4px;
+        }
+
+        /* Theme button wrapper (for Current with nested version toggle) */
+        .theme-btn-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            background: transparent;
+            color: #888;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .theme-btn-wrapper:hover {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .theme-btn-wrapper.active {
+            color: #fff;
+            background: #1a1a1a;
+        }
+
+        .theme-btn-wrapper.current.active {
+            border-bottom-color: #ff6b00;
+        }
+
+        .theme-btn-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .theme-btn-content span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Version toggle inside theme box */
+        .version-toggle-inline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            margin-left: 10px;
+            padding-left: 10px;
+            border-left: 1px solid #444;
+        }
+
+        .version-toggle-inline .ver-btn {
+            padding: 4px 8px;
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 3px;
+            color: #888;
+            font-size: 0.65rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .version-toggle-inline .ver-btn:hover {
+            background: #444;
+            color: #fff;
+        }
+
+        .version-toggle-inline .ver-btn.active {
+            background: #ff6b00;
+            border-color: #ff6b00;
+            color: #000;
+        }
+
+        .version-toggle-inline .ver-btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background: #222;
+            border-color: #444;
+            color: #555;
+        }
+
+        .version-toggle-inline .ver-btn.disabled:hover {
+            background: #222;
+            color: #555;
         }
 
         .coming-soon {
@@ -192,15 +286,19 @@
         }
 
         iframe {
+            position: fixed;
+            top: 90px;
+            left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
             height: calc(100vh - 90px);
-            margin-top: 90px;
             border: none;
-            transition: margin-top 0.3s ease, height 0.3s ease;
+            transition: top 0.3s ease, height 0.3s ease;
         }
 
         iframe.expanded {
-            margin-top: 0;
+            top: 0;
             height: 100vh;
         }
     </style>
@@ -223,10 +321,18 @@
 
         <!-- HLTV Themes -->
         <div class="theme-options active" id="hltv-themes">
-            <button class="theme-btn current active" onclick="switchTheme('current', 'hltv')">
-                🔶 Current
-                <span>Orange/Cyan Carbon</span>
-            </button>
+            <div class="theme-btn-wrapper current active" onclick="switchTheme('current', 'hltv')">
+                <div class="theme-btn-content">
+                    🔶 Current
+                    <span>Orange/Cyan Carbon</span>
+                </div>
+                <div class="version-toggle-inline" onclick="event.stopPropagation()">
+                    <button class="ver-btn active" onclick="switchVersion('v1')">V1</button>
+                    <button class="ver-btn disabled" disabled title="Coming soon">V1.5</button>
+                    <button class="ver-btn" onclick="switchVersion('v2')">V2</button>
+                    <button class="ver-btn" onclick="switchVersion('v2.5')">V2.5</button>
+                </div>
+            </div>
             <button class="theme-btn frost" onclick="switchTheme('frost', 'hltv')">
                 ❄️ Frost
                 <span>Blue/Purple Cool</span>
@@ -245,11 +351,12 @@
             </button>
         </div>
 
-        <!-- FM Themes (Coming Soon) -->
+        <!-- FM Themes -->
         <div class="theme-options" id="fm-themes">
-            <div class="coming-soon">
-                <em>Football Manager inspired prototypes coming soon...</em>
-            </div>
+            <button class="theme-btn fm26 active" onclick="switchTheme('fm26', 'fm')">
+                🎮 FM26 Portal
+                <span>Tiles & Cards / Mega-Menus</span>
+            </button>
         </div>
 
         <!-- Misc Themes -->
@@ -275,7 +382,7 @@
                 solid: 'prototypes/home-solid.html'
             },
             fm: {
-                // Coming soon
+                'fm26': 'prototypes/home-fm26.html'
             },
             misc: {
                 'user-home': 'user-home/index.html'
@@ -300,8 +407,19 @@
         function switchTheme(theme, category) {
             // Update button active state within category
             const container = document.getElementById(category + '-themes');
-            container.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.closest('.theme-btn').classList.add('active');
+            container.querySelectorAll('.theme-btn, .theme-btn-wrapper').forEach(btn => btn.classList.remove('active'));
+            const clickedBtn = event.target.closest('.theme-btn') || event.target.closest('.theme-btn-wrapper');
+            if (clickedBtn) clickedBtn.classList.add('active');
+
+            // Handle version toggle when switching themes
+            if (theme === 'current') {
+                // Switch to Current - highlight V1 by default
+                document.querySelectorAll('.ver-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector('.ver-btn').classList.add('active'); // First V1 button
+            } else {
+                // Switching away from Current - reset version toggle
+                document.querySelectorAll('.ver-btn').forEach(btn => btn.classList.remove('active'));
+            }
 
             // Load the theme
             if (themes[category] && themes[category][theme]) {
@@ -325,6 +443,82 @@
                 toggle.classList.remove('collapsed');
                 toggle.textContent = '▲';
                 iframe.classList.remove('expanded');
+            }
+        }
+
+        function switchVersion(version) {
+            // Update buttons
+            document.querySelectorAll('.ver-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const iframe = document.getElementById('preview');
+
+            // Also activate Current theme if not already active
+            const currentWrapper = document.querySelector('.theme-btn-wrapper.current');
+            if (currentWrapper && !currentWrapper.classList.contains('active')) {
+                // Switch to Current theme first, then apply version after load
+                document.querySelectorAll('.theme-btn, .theme-btn-wrapper').forEach(btn => btn.classList.remove('active'));
+                currentWrapper.classList.add('active');
+                iframe.src = 'home.html';
+
+                // Wait for iframe to load before switching version
+                iframe.onload = function () {
+                    applyVersion(iframe, version);
+                    iframe.onload = null; // Remove handler after use
+                };
+                return;
+            }
+
+            // If already on Current, apply version immediately
+            applyVersion(iframe, version);
+        }
+
+        function applyVersion(iframe, version) {
+            // Try postMessage first (works across origins)
+            try {
+                iframe.contentWindow.postMessage({ type: 'switchVersion', version: version }, '*');
+            } catch (e) {
+                console.log('postMessage failed:', e);
+            }
+
+            // Also try direct access (works for same origin)
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc) {
+                    // Toggle v1-only visibility
+                    iframeDoc.querySelectorAll('.v1-only').forEach(el => {
+                        el.style.display = version === 'v1' ? '' : 'none';
+                    });
+
+                    // Toggle v2-only visibility (shown on v2 and v2.5)
+                    iframeDoc.querySelectorAll('.v2-only').forEach(el => {
+                        el.style.display = version === 'v2' || version === 'v2.5' ? '' : 'none';
+                    });
+
+                    // Toggle v1-v2-only visibility (featured article - hidden on v2.5)
+                    iframeDoc.querySelectorAll('.v1-v2-only').forEach(el => {
+                        el.style.display = (version === 'v1' || version === 'v2') ? '' : 'none';
+                    });
+
+                    // Toggle v2-5-only visibility (match overview)
+                    iframeDoc.querySelectorAll('.v2-5-only').forEach(el => {
+                        el.style.display = version === 'v2.5' ? '' : 'none';
+                    });
+
+                    // Adjust grid for v2 and v2.5
+                    const container = iframeDoc.querySelector('.dashboard-container');
+                    if (container) {
+                        if (version === 'v2' || version === 'v2.5') {
+                            container.style.gridTemplateColumns = '220px minmax(0, 1fr) 180px 280px';
+                            container.style.gap = '16px';
+                        } else {
+                            container.style.gridTemplateColumns = '';
+                            container.style.gap = '';
+                        }
+                    }
+                }
+            } catch (e) {
+                console.log('Direct iframe access failed:', e);
             }
         }
     </script>

@@ -391,7 +391,7 @@ body {
     height: 28px;
     object-fit: contain;
     border-radius: 50%;
-    background: white;
+    background: var(--bg-elevated);
     padding: 2px;
 }
 

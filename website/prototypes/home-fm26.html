@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Manager | The Portal</title>
+    <meta name="description" content="CS Manager Dashboard - FM26-Inspired Portal System">
+    <link rel="stylesheet" href="prototype-fm26.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="fm-bg-effects">
+        <div class="fm-glow-orb purple"></div>
+        <div class="fm-glow-orb cyan"></div>
+        <div class="fm-noise-overlay"></div>
+    </div>
+
+    <!-- Top Navigation Bar - FM26 Style -->
+    <header class="fm-topnav">
+        <div class="fm-topnav-inner">
+            <!-- Logo -->
+            <a href="#" class="fm-logo">
+                <div class="fm-logo-icon">🎮</div>
+                <span class="fm-logo-text">CS<span class="accent">Manager</span></span>
+            </a>
+
+            <!-- Main Navigation with Mega Menus -->
+            <nav class="fm-main-nav">
+                <a href="#" class="fm-nav-item active">
+                    <span class="fm-nav-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <div class="fm-nav-item">
+                    <span class="fm-nav-icon">⚔️</span>
+                    <span>Matches</span>
+                    <span class="fm-dropdown-arrow">▾</span>
+                    <!-- Mega Menu -->
+                    <div class="fm-mega-menu">
+                        <a href="#"><span class="fm-mega-menu-icon">📅</span> Upcoming Matches</a>
+                        <a href="#"><span class="fm-mega-menu-icon">🔴</span> Live Matches</a>
+                        <a href="#"><span class="fm-mega-menu-icon">📋</span> Results</a>
+                        <a href="#"><span class="fm-mega-menu-icon">📊</span> Stats</a>
+                    </div>
+                </div>
+                <div class="fm-nav-item">
+                    <span class="fm-nav-icon">🏆</span>
+                    <span>Events</span>
+                    <span class="fm-dropdown-arrow">▾</span>
+                    <div class="fm-mega-menu">
+                        <a href="#"><span class="fm-mega-menu-icon">🎯</span> Active Events</a>
+                        <a href="#"><span class="fm-mega-menu-icon">📅</span> Calendar</a>
+                        <a href="#"><span class="fm-mega-menu-icon">🏅</span> Major Championships</a>
+                        <a href="#"><span class="fm-mega-menu-icon">📚</span> Archive</a>
+                    </div>
+                </div>
+                <div class="fm-nav-item">
+                    <span class="fm-nav-icon">👥</span>
+                    <span>Players</span>
+                    <span class="fm-dropdown-arrow">▾</span>
+                    <div class="fm-mega-menu">
+                        <a href="#"><span class="fm-mega-menu-icon">🌍</span> All Players</a>
+                        <a href="#"><span class="fm-mega-menu-icon">⭐</span> Top Rated</a>
+                        <a href="#"><span class="fm-mega-menu-icon">📈</span> Rising Stars</a>
+                        <a href="#"><span class="fm-mega-menu-icon">💼</span> Transfers</a>
+                    </div>
+                </div>
+                <div class="fm-nav-item">
+                    <span class="fm-nav-icon">📊</span>
+                    <span>Stats</span>
+                    <span class="fm-dropdown-arrow">▾</span>
+                    <div class="fm-mega-menu">
+                        <a href="#"><span class="fm-mega-menu-icon">📊</span> Overview</a>
+                        <a href="#"><span class="fm-mega-menu-icon">👤</span> Player Stats</a>
+                        <a href="#"><span class="fm-mega-menu-icon">👥</span> Team Stats</a>
+                        <a href="#"><span class="fm-mega-menu-icon">🗺️</span> Map Stats</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Nav Actions -->
+            <div class="fm-nav-actions">
+                <button class="fm-search-btn" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                </button>
+                <button class="fm-notifications-btn" aria-label="Notifications">
+                    <span class="fm-notification-badge"></span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    </svg>
+                </button>
+                <a href="#" class="fm-my-team-btn">
+                    <img src="../images/Team Logos/Spirit.png" alt="Spirit">
+                    <span class="team-name">Spirit</span>
+                    <span class="team-rank">#1</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bookmarks Bar - FM26 Quick Access -->
+    <div class="fm-bookmarks-bar">
+        <div class="fm-bookmarks-inner">
+            <span class="fm-bookmarks-label">Shortcuts</span>
+            <a href="#" class="fm-bookmark-item">
+                <span class="fm-bookmark-icon">📊</span>
+                My Stats
+            </a>
+            <a href="#" class="fm-bookmark-item">
+                <span class="fm-bookmark-icon">📅</span>
+                Schedule
+            </a>
+            <a href="#" class="fm-bookmark-item">
+                <span class="fm-bookmark-icon">💼</span>
+                Transfers
+            </a>
+            <a href="#" class="fm-bookmark-item">
+                <span class="fm-bookmark-icon">👥</span>
+                Roster
+            </a>
+            <a href="#" class="fm-bookmark-item">
+                <span class="fm-bookmark-icon">🏆</span>
+                IEM Cologne
+            </a>
+            <a href="#" class="fm-bookmark-item">
+                <span class="fm-bookmark-icon">📈</span>
+                Rankings
+            </a>
+            <button class="fm-bookmarks-add" aria-label="Add Bookmark">+</button>
+        </div>
+    </div>
+
+    <!-- The Portal - Main Dashboard -->
+    <main class="fm-portal">
+        <!-- Portal Header -->
+        <div class="fm-portal-header">
+            <div class="fm-portal-greeting">
+                <h1 class="fm-portal-title">Welcome to The Portal</h1>
+                <p class="fm-portal-subtitle">Your command center for CS2 esports management</p>
+            </div>
+            <div class="fm-portal-date">
+                <span class="date-icon">📅</span>
+                <span>December 23, 2025</span>
+            </div>
+        </div>
+
+        <!-- Tiles Grid System -->
+        <div class="fm-tiles-grid">
+
+            <!-- Featured News - Large Tile -->
+            <article class="fm-tile tile-7">
+                <div class="fm-featured-card">
+                    <div class="fm-featured-media">
+                        <span class="placeholder-icon">🏆</span>
+                        <div class="fm-featured-overlay"></div>
+                    </div>
+                    <div class="fm-featured-content">
+                        <div class="fm-featured-meta">
+                            <span class="fm-featured-category">Breaking</span>
+                            <span class="fm-featured-time">2 hours ago</span>
+                        </div>
+                        <h2 class="fm-featured-title">Spirit Completes Historic Major Three-Peat with Dominant Grand
+                            Final Victory</h2>
+                        <p class="fm-featured-excerpt">Team Spirit have cemented their legacy as the greatest CS2
+                            roster of all time with a commanding 3-1 victory over FaZe Clan in the Austin Major Grand
+                            Final...</p>
+                        <a href="#" class="fm-featured-link">
+                            Read Full Story
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Live Matches Tile -->
+            <section class="fm-tile tile-5">
+                <header class="fm-tile-header">
+                    <h3 class="fm-tile-title">
+                        <span class="fm-tile-icon">🔴</span>
+                        Live Matches
+                    </h3>
+                    <span class="fm-tile-badge">LIVE</span>
+                </header>
+                <div class="fm-tile-body">
+                    <div class="fm-live-matches-list">
+                        <a href="#" class="fm-live-match highlighted">
+                            <span class="fm-match-status live">LIVE</span>
+                            <div class="fm-match-teams">
+                                <div class="fm-match-team">
+                                    <img src="../images/Team Logos/Spirit.png" alt="Spirit">
+                                    <span>Spirit</span>
+                                </div>
+                                <span class="fm-match-score live">13 - 10</span>
+                                <div class="fm-match-team right">
+                                    <span>G2</span>
+                                    <img src="../images/Team Logos/G2.png" alt="G2">
+                                </div>
+                            </div>
+                            <span class="fm-match-event">IEM Cologne</span>
+                        </a>
+                        <a href="#" class="fm-live-match">
+                            <span class="fm-match-status live">LIVE</span>
+                            <div class="fm-match-teams">
+                                <div class="fm-match-team">
+                                    <img src="../images/Team Logos/Natus Vincere.png" alt="NAVI">
+                                    <span>NAVI</span>
+                                </div>
+                                <span class="fm-match-score live">8 - 7</span>
+                                <div class="fm-match-team right">
+                                    <span>FaZe</span>
+                                    <img src="../images/Team Logos/FaZe.png" alt="FaZe">
+                                </div>
+                            </div>
+                            <span class="fm-match-event">BLAST Premier</span>
+                        </a>
+                        <a href="#" class="fm-live-match">
+                            <span class="fm-match-status upcoming">14:00</span>
+                            <div class="fm-match-teams">
+                                <div class="fm-match-team">
+                                    <img src="../images/Team Logos/Vitality.png" alt="Vitality">
+                                    <span>Vitality</span>
+                                </div>
+                                <span class="fm-match-score">vs</span>
+                                <div class="fm-match-team right">
+                                    <span>MOUZ</span>
+                                    <img src="../images/Team Logos/MOUZ.png" alt="MOUZ">
+                                </div>
+                            </div>
+                            <span class="fm-match-event">IEM Cologne</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- World Rankings Tile -->
+            <section class="fm-tile tile-4">
+                <header class="fm-tile-header">
+                    <h3 class="fm-tile-title">
+                        <span class="fm-tile-icon">🌍</span>
+                        World Rankings
+                    </h3>
+                    <a href="#" class="fm-tile-action">View All →</a>
+                </header>
+                <div class="fm-tile-body">
+                    <ul class="fm-rankings-list">
+                        <li class="fm-ranking-row highlight">
+                            <span class="fm-rank-pos">1</span>
+                            <img src="../images/Team Logos/Spirit.png" alt="Spirit" class="team-logo">
+                            <span class="team-name">Spirit</span>
+                            <div class="fm-rank-meta">
+                                <span class="fm-rank-points">1000</span>
+                                <span class="fm-rank-change up">+2</span>
+                            </div>
+                        </li>
+                        <li class="fm-ranking-row">
+                            <span class="fm-rank-pos">2</span>
+                            <img src="../images/Team Logos/G2.png" alt="G2" class="team-logo">
+                            <span class="team-name">G2</span>
+                            <div class="fm-rank-meta">
+                                <span class="fm-rank-points">892</span>
+                                <span class="fm-rank-change down">-1</span>
+                            </div>
+                        </li>
+                        <li class="fm-ranking-row">
+                            <span class="fm-rank-pos">3</span>
+                            <img src="../images/Team Logos/Natus Vincere.png" alt="NAVI" class="team-logo">
+                            <span class="team-name">NAVI</span>
+                            <div class="fm-rank-meta">
+                                <span class="fm-rank-points">845</span>
+                                <span class="fm-rank-change down">-1</span>
+                            </div>
+                        </li>
+                        <li class="fm-ranking-row">
+                            <span class="fm-rank-pos">4</span>
+                            <img src="../images/Team Logos/FaZe.png" alt="FaZe" class="team-logo">
+                            <span class="team-name">FaZe</span>
+                            <div class="fm-rank-meta">
+                                <span class="fm-rank-points">798</span>
+                                <span class="fm-rank-change same">—</span>
+                            </div>
+                        </li>
+                        <li class="fm-ranking-row">
+                            <span class="fm-rank-pos">5</span>
+                            <img src="../images/Team Logos/Vitality.png" alt="Vitality" class="team-logo">
+                            <span class="team-name">Vitality</span>
+                            <div class="fm-rank-meta">
+                                <span class="fm-rank-points">756</span>
+                                <span class="fm-rank-change up">+3</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Player Spotlight Tile -->
+            <section class="fm-tile tile-4">
+                <header class="fm-tile-header">
+                    <h3 class="fm-tile-title">
+                        <span class="fm-tile-icon">⭐</span>
+                        Player Spotlight
+                    </h3>
+                    <span class="fm-tile-badge green">MVP</span>
+                </header>
+                <div class="fm-tile-body">
+                    <div class="fm-spotlight-content">
+                        <div class="fm-spotlight-player">
+                            <div class="fm-player-avatar">
+                                <img src="../images/Player Images/donk.png" alt="donk">
+                                <span class="fm-player-rating">96</span>
+                            </div>
+                            <span class="fm-player-name">donk</span>
+                            <div class="fm-player-team">
+                                <img src="../images/Team Logos/Spirit.png" alt="Spirit">
+                                <span>Team Spirit</span>
+                            </div>
+                        </div>
+                        <div class="fm-spotlight-stats">
+                            <div class="fm-stat-box">
+                                <span class="fm-stat-value green">1.42</span>
+                                <span class="fm-stat-label">Rating</span>
+                            </div>
+                            <div class="fm-stat-box">
+                                <span class="fm-stat-value cyan">87.3%</span>
+                                <span class="fm-stat-label">KAST</span>
+                            </div>
+                            <div class="fm-stat-box">
+                                <span class="fm-stat-value orange">94.2</span>
+                                <span class="fm-stat-label">ADR</span>
+                            </div>
+                            <div class="fm-stat-box">
+                                <span class="fm-stat-value purple">1.58</span>
+                                <span class="fm-stat-label">K/D</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Your Schedule Tile -->
+            <section class="fm-tile tile-4">
+                <header class="fm-tile-header">
+                    <h3 class="fm-tile-title">
+                        <span class="fm-tile-icon">📅</span>
+                        Your Schedule
+                    </h3>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <img src="../images/Team Logos/Spirit.png" alt="Spirit" style="width: 20px; height: 20px;">
+                        <span style="font-size: 0.8rem; color: var(--fm-text-secondary);">Spirit</span>
+                    </div>
+                </header>
+                <div class="fm-tile-body">
+                    <div class="fm-schedule-content">
+                        <div class="fm-event-block">
+                            <div class="fm-event-header">
+                                <span class="fm-event-status ongoing">Ongoing</span>
+                                <span class="fm-event-name">IEM Cologne 2025</span>
+                                <span class="fm-event-dates">Dec 20 - Dec 28</span>
+                            </div>
+                            <ul class="fm-event-matches">
+                                <li class="fm-match-row">
+                                    <div class="fm-match-info">
+                                        <span class="fm-match-stage">Quarterfinal</span>
+                                        <span class="fm-match-opponent">
+                                            vs NAVI
+                                            <img src="../images/Team Logos/Natus Vincere.png" alt="NAVI">
+                                        </span>
+                                    </div>
+                                    <div class="fm-match-schedule">
+                                        <span>Dec 22</span>
+                                        <span>18:00</span>
+                                    </div>
+                                </li>
+                                <li class="fm-match-row pending">
+                                    <div class="fm-match-info">
+                                        <span class="fm-match-stage">Semifinal</span>
+                                        <span class="fm-match-opponent">vs TBD</span>
+                                    </div>
+                                    <div class="fm-match-schedule">
+                                        <span>Dec 24</span>
+                                        <span>TBD</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="fm-event-block">
+                            <div class="fm-event-header">
+                                <span class="fm-event-status upcoming">Upcoming</span>
+                                <span class="fm-event-name">BLAST Premier: Spring</span>
+                                <span class="fm-event-dates">Jan 15 - Jan 22</span>
+                            </div>
+                            <ul class="fm-event-matches">
+                                <li class="fm-match-row">
+                                    <div class="fm-match-info">
+                                        <span class="fm-match-stage">Group A</span>
+                                        <span class="fm-match-opponent">
+                                            vs G2
+                                            <img src="../images/Team Logos/G2.png" alt="G2">
+                                        </span>
+                                    </div>
+                                    <div class="fm-match-schedule">
+                                        <span>Jan 15</span>
+                                        <span>15:00</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest News Tile -->
+            <section class="fm-tile tile-5">
+                <header class="fm-tile-header">
+                    <h3 class="fm-tile-title">
+                        <span class="fm-tile-icon">📰</span>
+                        Latest News
+                    </h3>
+                    <a href="#" class="fm-tile-action">All News →</a>
+                </header>
+                <div class="fm-tile-body">
+                    <ul class="fm-news-feed">
+                        <li class="fm-news-item">
+                            <span class="fm-news-category transfers">Transfers</span>
+                            <a href="#" class="fm-news-title">Heroic Reportedly in Talks with ENCE Star</a>
+                            <span class="fm-news-time">14h ago</span>
+                        </li>
+                        <li class="fm-news-item">
+                            <span class="fm-news-category interview">Interview</span>
+                            <a href="#" class="fm-news-title">donk: "We're Not Done Winning Yet"</a>
+                            <span class="fm-news-time">18h ago</span>
+                        </li>
+                        <li class="fm-news-item">
+                            <span class="fm-news-category analysis">Analysis</span>
+                            <a href="#" class="fm-news-title">Why the AWP Meta is Shifting in 2025</a>
+                            <span class="fm-news-time">1d ago</span>
+                        </li>
+                        <li class="fm-news-item">
+                            <span class="fm-news-category events">Events</span>
+                            <a href="#" class="fm-news-title">IEM Cologne Prize Pool Revealed: $1.5M</a>
+                            <span class="fm-news-time">1d ago</span>
+                        </li>
+                        <li class="fm-news-item">
+                            <span class="fm-news-category roster">Roster</span>
+                            <a href="#" class="fm-news-title">FaZe Consider Roster Changes After Major Loss</a>
+                            <span class="fm-news-time">2d ago</span>
+                        </li>
+                        <li class="fm-news-item">
+                            <span class="fm-news-category transfers">Transfers</span>
+                            <a href="#" class="fm-news-title">Cloud9 Re-Enter CS2 Scene with Full European Roster</a>
+                            <span class="fm-news-time">2d ago</span>
+                        </li>
+                        <li class="fm-news-item">
+                            <span class="fm-news-category analysis">Analysis</span>
+                            <a href="#" class="fm-news-title">Breaking Down Spirit's Dominant Inferno Setups</a>
+                            <span class="fm-news-time">3d ago</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Recent Transfers Tile -->
+            <section class="fm-tile tile-3">
+                <header class="fm-tile-header">
+                    <h3 class="fm-tile-title">
+                        <span class="fm-tile-icon">💼</span>
+                        Transfers
+                    </h3>
+                    <a href="#" class="fm-tile-action">Hub →</a>
+                </header>
+                <div class="fm-tile-body">
+                    <div class="fm-transfers-list">
+                        <div class="fm-transfer-item">
+                            <div class="fm-transfer-player">
+                                <span class="avatar">👤</span>
+                                <span class="name">cadiaN</span>
+                            </div>
+                            <div class="fm-transfer-flow">
+                                <img src="../images/Team Logos/HEROIC.png" alt="HEROIC">
+                                <span class="fm-transfer-arrow">→</span>
+                                <img src="../images/Team Logos/G2.png" alt="G2">
+                            </div>
+                            <span class="fm-transfer-fee">€800K</span>
+                        </div>
+                        <div class="fm-transfer-item">
+                            <div class="fm-transfer-player">
+                                <span class="avatar">👤</span>
+                                <span class="name">huNter-</span>
+                            </div>
+                            <div class="fm-transfer-flow">
+                                <img src="../images/Team Logos/G2.png" alt="G2">
+                                <span class="fm-transfer-arrow">→</span>
+                                <img src="../images/Team Logos/FaZe.png" alt="FaZe">
+                            </div>
+                            <span class="fm-transfer-fee">Free</span>
+                        </div>
+                        <div class="fm-transfer-item">
+                            <div class="fm-transfer-player">
+                                <span class="avatar">👤</span>
+                                <span class="name">Twistzz</span>
+                            </div>
+                            <div class="fm-transfer-flow">
+                                <img src="../images/Team Logos/FaZe.png" alt="FaZe">
+                                <span class="fm-transfer-arrow">→</span>
+                                <img src="../images/Team Logos/Liquid.png" alt="Liquid">
+                            </div>
+                            <span class="fm-transfer-fee">€1.2M</span>
+                        </div>
+                        <div class="fm-transfer-item">
+                            <div class="fm-transfer-player">
+                                <span class="avatar">👤</span>
+                                <span class="name">ropz</span>
+                            </div>
+                            <div class="fm-transfer-flow">
+                                <img src="../images/Team Logos/FaZe.png" alt="FaZe">
+                                <span class="fm-transfer-arrow">→</span>
+                                <img src="../images/Team Logos/Vitality.png" alt="Vitality">
+                            </div>
+                            <span class="fm-transfer-fee">€1.5M</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Results Tile -->
+            <section class="fm-tile tile-4">
+                <header class="fm-tile-header">
+                    <h3 class="fm-tile-title">
+                        <span class="fm-tile-icon">📋</span>
+                        Recent Results
+                    </h3>
+                    <a href="#" class="fm-tile-action">All Results →</a>
+                </header>
+                <div class="fm-tile-body">
+                    <div class="fm-results-list">
+                        <div class="fm-result-item win">
+                            <div class="fm-result-indicator"></div>
+                            <div class="fm-result-teams">
+                                <span class="your-team">Spirit</span>
+                                <span class="score">2 - 0</span>
+                                <span>MOUZ</span>
+                            </div>
+                            <span class="fm-result-event">Major Semifinal</span>
+                        </div>
+                        <div class="fm-result-item win">
+                            <div class="fm-result-indicator"></div>
+                            <div class="fm-result-teams">
+                                <span class="your-team">Spirit</span>
+                                <span class="score">2 - 1</span>
+                                <span>NAVI</span>
+                            </div>
+                            <span class="fm-result-event">Major Quarterfinal</span>
+                        </div>
+                        <div class="fm-result-item win">
+                            <div class="fm-result-indicator"></div>
+                            <div class="fm-result-teams">
+                                <span class="your-team">Spirit</span>
+                                <span class="score">3 - 1</span>
+                                <span>FaZe</span>
+                            </div>
+                            <span class="fm-result-event">Major Grand Final</span>
+                        </div>
+                        <div class="fm-result-item loss">
+                            <div class="fm-result-indicator"></div>
+                            <div class="fm-result-teams">
+                                <span class="your-team">Spirit</span>
+                                <span class="score">1 - 2</span>
+                                <span>G2</span>
+                            </div>
+                            <span class="fm-result-event">BLAST Group Stage</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Upcoming Events Banner -->
+    <section class="fm-events-banner">
+        <div class="fm-events-banner-inner">
+            <div class="fm-events-banner-header">
+                <span>🎮</span>
+                <span>Upcoming Major Events</span>
+            </div>
+            <div class="fm-events-track">
+                <div class="fm-event-card">
+                    <div class="fm-event-visual">🏆</div>
+                    <div class="fm-event-details">
+                        <h4>IEM Cologne 2025</h4>
+                        <span class="fm-event-date-range">Dec 20 - Dec 28</span>
+                        <span class="fm-event-prize">$1,500,000</span>
+                    </div>
+                    <span class="fm-event-tag ongoing">Ongoing</span>
+                </div>
+                <div class="fm-event-card">
+                    <div class="fm-event-visual">💥</div>
+                    <div class="fm-event-details">
+                        <h4>BLAST Premier: Spring</h4>
+                        <span class="fm-event-date-range">Jan 15 - Jan 22</span>
+                        <span class="fm-event-prize">$425,000</span>
+                    </div>
+                    <span class="fm-event-tag">In 27 days</span>
+                </div>
+                <div class="fm-event-card">
+                    <div class="fm-event-visual">🌟</div>
+                    <div class="fm-event-details">
+                        <h4>PGL Major Copenhagen</h4>
+                        <span class="fm-event-date-range">Mar 10 - Mar 31</span>
+                        <span class="fm-event-prize">$1,250,000</span>
+                    </div>
+                    <span class="fm-event-tag">In 81 days</span>
+                </div>
+                <div class="fm-event-card">
+                    <div class="fm-event-visual">⚡</div>
+                    <div class="fm-event-details">
+                        <h4>ESL Pro League S21</h4>
+                        <span class="fm-event-date-range">Apr 5 - Apr 27</span>
+                        <span class="fm-event-prize">$850,000</span>
+                    </div>
+                    <span class="fm-event-tag">In 107 days</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fm-footer">
+        <div class="fm-footer-inner">
+            <div class="fm-footer-brand">
+                <a href="#" class="fm-logo">
+                    <div class="fm-logo-icon">🎮</div>
+                    <span class="fm-logo-text">CS<span class="accent">Manager</span></span>
+                </a>
+                <p class="fm-footer-tagline">The ultimate Counter-Strike esports management simulator. Inspired by
+                    Football Manager 26's revolutionary Portal system.</p>
+            </div>
+            <nav class="fm-footer-nav">
+                <div class="fm-footer-column">
+                    <h5>Game</h5>
+                    <a href="#">Play Now</a>
+                    <a href="#">Features</a>
+                    <a href="#">Teams</a>
+                </div>
+                <div class="fm-footer-column">
+                    <h5>Community</h5>
+                    <a href="#">Discord</a>
+                    <a href="#">Reddit</a>
+                    <a href="#">Twitter</a>
+                </div>
+                <div class="fm-footer-column">
+                    <h5>Support</h5>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Feedback</a>
+                </div>
+            </nav>
+        </div>
+        <div class="fm-footer-bottom">
+            <span>© 2025 CS Manager. Made with ❤️ for esports fans. FM26-Inspired Design.</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
