@@ -367,7 +367,8 @@
                                             </div>
                                         </div>
                                         <div class="player-card">
-                                            <div class="player-avatar placeholder">👤</div>
+                                            <img src="images/Player Images/chopper.png" alt="chopper"
+                                                class="player-avatar">
                                             <div class="player-info">
                                                 <span class="player-name">chopper</span>
                                                 <span class="player-role igl">IGL</span>
@@ -382,7 +383,7 @@
                                     <!-- Team 2 Roster -->
                                     <div class="roster team2-roster">
                                         <div class="player-card">
-                                            <div class="player-avatar placeholder">👤</div>
+                                            <img src="images/Player Images/NiKo.png" alt="NiKo" class="player-avatar">
                                             <div class="player-info">
                                                 <span class="player-name">NiKo</span>
                                                 <span class="player-role opener">Opener</span>
@@ -393,7 +394,8 @@
                                             </div>
                                         </div>
                                         <div class="player-card">
-                                            <div class="player-avatar placeholder">👤</div>
+                                            <img src="images/Player Images/huNter-.png" alt="huNter"
+                                                class="player-avatar">
                                             <div class="player-info">
                                                 <span class="player-name">huNter</span>
                                                 <span class="player-role closer">Closer</span>
@@ -404,7 +406,7 @@
                                             </div>
                                         </div>
                                         <div class="player-card">
-                                            <div class="player-avatar placeholder">👤</div>
+                                            <img src="images/Player Images/HooXi.png" alt="HooXi" class="player-avatar">
                                             <div class="player-info">
                                                 <span class="player-name">HooXi</span>
                                                 <span class="player-role igl">IGL</span>
@@ -415,7 +417,8 @@
                                             </div>
                                         </div>
                                         <div class="player-card">
-                                            <div class="player-avatar placeholder">👤</div>
+                                            <img src="images/Player Images/m0NESY.png" alt="m0NESY"
+                                                class="player-avatar">
                                             <div class="player-info">
                                                 <span class="player-name">m0NESY</span>
                                                 <span class="player-role awp">AWP</span>
@@ -550,7 +553,7 @@
                                     <span class="player-name">NiKo</span>
                                     <span class="player-role opener">OPENER</span>
                                 </div>
-                                <div class="player-avatar-sm placeholder">👤</div>
+                                <img src="images/Player Images/NiKo.png" alt="NiKo" class="player-avatar-sm">
                             </div>
                         </div>
 
@@ -581,7 +584,7 @@
                                     <span class="player-name">huNter</span>
                                     <span class="player-role closer">CLOSER</span>
                                 </div>
-                                <div class="player-avatar-sm placeholder">👤</div>
+                                <img src="images/Player Images/huNter-.png" alt="huNter" class="player-avatar-sm">
                             </div>
                         </div>
 
@@ -612,7 +615,7 @@
                                     <span class="player-name">HooXi</span>
                                     <span class="player-role igl">IGL</span>
                                 </div>
-                                <div class="player-avatar-sm placeholder">👤</div>
+                                <img src="images/Player Images/HooXi.png" alt="HooXi" class="player-avatar-sm">
                             </div>
                         </div>
 
@@ -643,14 +646,14 @@
                                     <span class="player-name">m0NESY</span>
                                     <span class="player-role awp">AWP</span>
                                 </div>
-                                <div class="player-avatar-sm placeholder">👤</div>
+                                <img src="images/Player Images/m0NESY.png" alt="m0NESY" class="player-avatar-sm">
                             </div>
                         </div>
 
                         <!-- Row 5 -->
                         <div class="mo-v2-player-row">
                             <div class="player-left">
-                                <div class="player-avatar-sm placeholder">👤</div>
+                                <img src="images/Player Images/chopper.png" alt="chopper" class="player-avatar-sm">
                                 <div class="player-info-compact">
                                     <span class="player-name">chopper</span>
                                     <span class="player-role igl">IGL</span>
@@ -1043,6 +1046,11 @@
         document.querySelectorAll('.v2-5-only').forEach(el => {
             el.style.display = 'none';
         });
+        // Hide version switcher panel by default (only show in V2.5 mode)
+        const versionSwitcherPanel = document.getElementById('versionSwitcherPanel');
+        if (versionSwitcherPanel) {
+            versionSwitcherPanel.style.display = 'none';
+        }
 
         // Listen for version switch messages from parent (prototype-compare.html)
         window.addEventListener('message', function (event) {
@@ -1091,6 +1099,12 @@
                         container.style.gap = '';
                     }
                 }
+
+                // Show/hide the Match Overview version switcher panel (only in V2.5)
+                const switcherPanel = document.getElementById('versionSwitcherPanel');
+                if (switcherPanel) {
+                    switcherPanel.style.display = version === 'v2.5' ? 'block' : 'none';
+                }
             }
         });
 
@@ -1118,13 +1132,13 @@
                     { name: 'magixx', avatar: 'images/Player Images/magixx.png', role: 'Closer', kills: 22, assists: 3, deaths: 16, adr: 92 },
                     { name: 'zont1x', avatar: 'images/Player Images/zont1x.png', role: 'Support', kills: 19, assists: 6, deaths: 15, adr: 78 },
                     { name: 'sh1ro', avatar: 'images/Player Images/sh1ro.png', role: 'AWP', kills: 20, assists: 2, deaths: 12, adr: 85 },
-                    { name: 'chopper', avatar: null, role: 'IGL', kills: 15, assists: 5, deaths: 18, adr: 65 }
+                    { name: 'chopper', avatar: 'images/Player Images/chopper.png', role: 'IGL', kills: 15, assists: 5, deaths: 18, adr: 65 }
                 ],
                 team2Roster: [
-                    { name: 'NiKo', avatar: null, role: 'Opener', kills: 21, assists: 3, deaths: 18, adr: 88 },
-                    { name: 'huNter', avatar: null, role: 'Closer', kills: 18, assists: 4, deaths: 20, adr: 75 },
-                    { name: 'HooXi', avatar: null, role: 'IGL', kills: 12, assists: 7, deaths: 22, adr: 52 },
-                    { name: 'm0NESY', avatar: null, role: 'AWP', kills: 24, assists: 2, deaths: 17, adr: 95 },
+                    { name: 'NiKo', avatar: 'images/Player Images/NiKo.png', role: 'Opener', kills: 21, assists: 3, deaths: 18, adr: 88 },
+                    { name: 'huNter', avatar: 'images/Player Images/huNter-.png', role: 'Closer', kills: 18, assists: 4, deaths: 20, adr: 75 },
+                    { name: 'HooXi', avatar: 'images/Player Images/HooXi.png', role: 'IGL', kills: 12, assists: 7, deaths: 22, adr: 52 },
+                    { name: 'm0NESY', avatar: 'images/Player Images/m0NESY.png', role: 'AWP', kills: 24, assists: 2, deaths: 17, adr: 95 },
                     { name: 'nexa', avatar: null, role: 'Support', kills: 14, assists: 5, deaths: 19, adr: 62 }
                 ]
             },
