@@ -1,0 +1,203 @@
+/* ===========================================
+   PROTOTYPE: NEON THEME (Purple/Pink Synthwave)
+   Theme variables override only - imports base dashboard.css
+   =========================================== */
+
+@import url('../dashboard.css');
+
+/* Override CSS Custom Properties for Neon Theme */
+:root {
+    /* Background Colors - Deep Carbon/Dark */
+    --bg-base: #0a0a0f;
+    --bg-surface: #12121a;
+    --bg-elevated: #1a1a24;
+    --bg-hover: #222230;
+    --bg-active: #2a2a3a;
+
+    /* Border Colors - Subtle purple tints */
+    --border-subtle: #2a2a3a;
+    --border-default: #3a3a4a;
+    --border-strong: #4a4a5a;
+
+    /* Text Colors */
+    --text-primary: #f0e8f8;
+    --text-secondary: #a89ab8;
+    --text-dim: #6a5a7a;
+    --text-muted: #4a3a5a;
+
+    /* Accent Colors - Purple/Pink Neon */
+    --accent-orange: #a855f7;
+    --accent-orange-dim: rgba(168, 85, 247, 0.15);
+    --accent-cyan: #ec4899;
+    --accent-cyan-dim: rgba(236, 72, 153, 0.15);
+    --accent-green: #22d3ee;
+    --accent-green-dim: rgba(34, 211, 238, 0.15);
+    --accent-purple: #a855f7;
+    --accent-purple-dim: rgba(168, 85, 247, 0.15);
+    --accent-red: #f43f5e;
+    --accent-red-dim: rgba(244, 63, 94, 0.15);
+}
+
+/* Theme-specific accents - Purple to Pink gradient */
+.logo-text .accent {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.my-team-btn {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    box-shadow: 0 2px 15px rgba(168, 85, 247, 0.3);
+}
+
+.my-team-btn:hover {
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.5);
+}
+
+.avatar-ring {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+}
+
+.your-events {
+    background: linear-gradient(135deg, #12101a, #151218);
+    border-left: 3px solid #a855f7;
+    box-shadow: inset 4px 0 15px -5px rgba(168, 85, 247, 0.3);
+}
+
+/* Neon theme: Purple/Pink hover glows */
+.your-events:hover,
+.your-events:has(.event-block:hover),
+.your-events:has(.event-match:hover) {
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        inset 4px 0 20px -5px rgba(168, 85, 247, 0.5);
+    border-color: #a855f7;
+}
+
+.event-block:hover {
+    background: rgba(168, 85, 247, 0.03);
+}
+
+/* Widget hover - purple/pink glow */
+.widget:hover {
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.15);
+}
+
+/* Player of the Week - neon glow effect */
+.potw-card:hover .avatar-ring {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5),
+        0 0 40px rgba(236, 72, 153, 0.3);
+}
+
+.potw-card:hover .potw-rating {
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
+
+/* Featured article tag */
+.featured-tag.orange {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+}
+
+/* LIVE badge with neon pink */
+.live-badge,
+.match-status.live-badge {
+    background: linear-gradient(135deg, #ec4899, #f43f5e);
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+}
+
+/* Rankings hover glow */
+.ranking-item:hover {
+    background: rgba(168, 85, 247, 0.08);
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+/* News card hover */
+.news-card:hover {
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.1);
+}
+
+/* Transfer - no highlight, keep consistent gray */
+.transfer-flow .to-team.highlight {
+    color: var(--text-secondary);
+}
+
+/* Widget badges with gradient */
+.widget-badge.purple {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    color: #fff;
+}
+
+/* Match item live state */
+.match-item.live {
+    border-left-color: #ec4899;
+    background: rgba(236, 72, 153, 0.05);
+}
+
+/* Score styling */
+.score {
+    color: #f0e8f8;
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
+}
+
+/* Nav active state */
+.nav-item.active .nav-link {
+    color: #a855f7;
+}
+
+.nav-item.active::after {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+}
+
+/* Dropdown hover */
+.dropdown-menu a:hover {
+    background: rgba(168, 85, 247, 0.1);
+    color: #a855f7;
+}
+
+/* Search focus */
+.search-input:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+}
+
+/* Featured article */
+.featured-article:hover {
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 12px 40px rgba(168, 85, 247, 0.1);
+}
+
+/* Read more link */
+.read-more {
+    color: #a855f7;
+}
+
+.read-more:hover {
+    color: #ec4899;
+}
+
+/* Points/rank styling */
+.points {
+    color: #a855f7;
+}
+
+.event-status.ongoing {
+    color: #ec4899;
+    background: rgba(236, 72, 153, 0.15);
+}
+
+.event-status.upcoming {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.15);
+}
+
+/* Points/rank styling */
+.points {
+    color: #a855f7;
+}
+
+/* Widget link */
+.widget-link:hover {
+    color: #a855f7;
+}

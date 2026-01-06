@@ -142,6 +142,11 @@
             border-bottom-color: #8b5cf6;
         }
 
+        /* Neon Theme colors */
+        .theme-btn.neon.active {
+            border-bottom-color: #a855f7;
+        }
+
         /* Misc Theme colors */
         .theme-btn.user-home.active {
             border-bottom-color: #6366f1;
@@ -349,6 +354,10 @@
                 🎨 Solid
                 <span>Filled Color Badges</span>
             </button>
+            <button class="theme-btn neon" onclick="switchTheme('neon', 'hltv')">
+                💜 Neon
+                <span>Purple/Pink Synthwave</span>
+            </button>
         </div>
 
         <!-- FM Themes -->
@@ -379,7 +388,8 @@
                 frost: 'prototypes/home-frost.html',
                 fire: 'prototypes/home-fire.html',
                 minimal: 'prototypes/home-minimal.html',
-                solid: 'prototypes/home-solid.html'
+                solid: 'prototypes/home-solid.html',
+                neon: 'prototypes/home-neon.html'
             },
             fm: {
                 'fm26': 'prototypes/home-fm26.html'
